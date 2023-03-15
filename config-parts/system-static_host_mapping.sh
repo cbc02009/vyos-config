@@ -1,0 +1,25 @@
+# Gateway
+set system static-host-mapping host-name gateway.ctec.run inet 10.0.0.1
+set system static-host-mapping host-name gateway.ctec.run alias vpn.kokoro.wtf
+set system static-host-mapping host-name gateway.ctec.run alias ipv4.kokoro.wtf
+
+# Unifi controller
+set system static-host-mapping host-name unifi inet 10.5.0.10
+
+# NAS
+set system static-host-mapping host-name shana.ctec.run inet 10.0.2.9
+set system static-host-mapping host-name shana.ctec.run alias nas.ctec.run
+set system static-host-mapping host-name shana.ctec.run alias garage.kokoro.wtf
+set system static-host-mapping host-name shana.ctec.run alias s3.kokoro.wtf
+
+# Kubernetes hosts
+set system static-host-mapping host-name uiharu.ctec.run inet 10.0.2.10
+set system static-host-mapping host-name anya.ctec.run inet 10.0.2.11
+set system static-host-mapping host-name sakura.ctec.run inet 10.0.2.12
+set system static-host-mapping host-name rem.ctec.run inet 10.0.2.13
+set system static-host-mapping host-name ram.ctec.run inet 10.0.2.14
+
+# Kubernetes cluster VIP
+set system static-host-mapping host-name cluster.ctec.run inet 10.5.0.2
+
+# Other hosts
