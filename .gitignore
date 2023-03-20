@@ -5,7 +5,7 @@
 !.gitignore
 !.sops.yaml
 !apply-config.sh
-!secret.sops.env
+!secrets.sops.env
 
 # VyOS config
 !scripts/
