@@ -13,4 +13,4 @@
 !containers/
 
 # CI
-# !.github/
+!.github/

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>cbc02009/renovate-config",
+    "github>cbc02009/renovate-config:automerge-github-actions.json5",
+  ],
+  "platform": "github",
+  "username": "mahoro-bot[bot]",
+  "gitAuthor": "mahoro-bot <115426318+mahoro-bot[bot]@users.noreply.github.com>",
+  "repositories": ["cbc02009/vyos-config"],
+  "regexManagers": [
+    {
+      "description": ["Generic Docker image Regex manager"],
+      "fileMatch": [
+        "config-parts/.+\\.sh$"
+      ],
+      "matchStrings": [
+        "set container name .* image '?(?<depName>.*?):(?<currentValue>[^'\n]*=?)'?"
+      ],
+      "datasourceTemplate": "docker"
+    },
+  ],
+  "packageRules": []
+}
