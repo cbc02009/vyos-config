@@ -20,6 +20,6 @@ set system static-host-mapping host-name rem.ctec.run inet 10.0.0.13
 set system static-host-mapping host-name ram.ctec.run inet 10.0.0.14
 
 # Kubernetes cluster VIP
-set system static-host-mapping host-name cluster.ctec.run inet 10.5.0.2
+set system static-host-mapping host-name cluster.ctec.run inet 10.0.0.9
 
 # Other hosts
