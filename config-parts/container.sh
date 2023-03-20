@@ -35,7 +35,7 @@ set container name coredns volume vyoshosts mode 'ro'
 
 # dnsdist
 set container name dnsdist cap-add 'net-bind-service'
-set container name dnsdist environment TZ value '${TZ}'
+set container name dnsdist environment TZ value ${TZ}
 set container name dnsdist image 'docker.io/powerdns/dnsdist-17:1.7.3'
 set container name dnsdist memory '0'
 set container name dnsdist network services address '10.5.0.4'
@@ -83,7 +83,7 @@ set container name speedtest-exporter shared-memory '0'
 
 # unifi
 set container name unifi environment RUNAS_UID0 value 'false'
-set container name unifi environment TZ value '${TZ}'
+set container name unifi environment TZ value ${TZ}
 set container name unifi environment UNIFI_GID value '999'
 set container name unifi environment UNIFI_STDOUT value 'true'
 set container name unifi environment UNIFI_UID value '999'

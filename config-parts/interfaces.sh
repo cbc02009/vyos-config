@@ -6,7 +6,7 @@ set interfaces ethernet eth0 description 'WAN'
 # set interfaces ethernet eth0 hw-id ''
 
 # ETH1 LAN
-set interfaces ethernet eth1 address '${GATEWAY_LAN}/24'
+set interfaces ethernet eth1 address ${GATEWAY_LAN}/24
 set interfaces ethernet eth1 description 'LAN'
 # set interfaces ethernet eth1 hw-id ''
 

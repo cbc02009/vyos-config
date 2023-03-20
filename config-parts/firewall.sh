@@ -9,17 +9,17 @@ set firewall state-policy related action 'accept'
 set firewall group address-group k8s_api address '10.5.0.2'
 set firewall group address-group k8s_ingress address ${INGRESS_IP}
 
-set firewall group address-group k8s_nodes address '${UIHARU_ADDR}'
-set firewall group address-group k8s_nodes address '${ANYA_ADDR}'
-set firewall group address-group k8s_nodes address '${SAKURA_ADDR}'
-set firewall group address-group k8s_nodes address '${REM_ADDR}'
-set firewall group address-group k8s_nodes address '${RAM_ADDR}'
+set firewall group address-group k8s_nodes address ${UIHARU_ADDR}
+set firewall group address-group k8s_nodes address ${ANYA_ADDR}
+set firewall group address-group k8s_nodes address ${SAKURA_ADDR}
+set firewall group address-group k8s_nodes address ${REM_ADDR}
+set firewall group address-group k8s_nodes address ${RAM_ADDR}
 
-set firewall group address-group k8s_plex address '${LB_PLEX}'
+set firewall group address-group k8s_plex address ${LB_PLEX}
 
-set firewall group address-group k8s_vector_aggregator address '${LB_VECTOR}'
+set firewall group address-group k8s_vector_aggregator address ${LB_VECTOR}
 
-set firewall group address-group nas address '${SHANA_ADDR}'
+set firewall group address-group nas address ${SHANA_ADDR}
 
 set firewall group address-group unifi_devices address '10.0.0.40'
 set firewall group address-group unifi_devices address '10.0.0.41'

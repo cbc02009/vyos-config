@@ -6,7 +6,7 @@ set service dhcp-server host-decl-name
 # LAN
 set service dhcp-server shared-network-name LAN authoritative
 set service dhcp-server shared-network-name LAN ping-check
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/23 default-router '${GATEWAY_LAN}'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/23 default-router ${GATEWAY_LAN}
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/23 lease '86400'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/23 name-server '10.5.0.4'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/23 range 0 start '10.0.0.200'
