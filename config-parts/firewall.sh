@@ -7,7 +7,7 @@ set firewall state-policy related action 'accept'
 
 # Address Groups
 set firewall group address-group k8s_api address '10.5.0.2'
-set firewall group address-group k8s_ingress address '${INGRESS_IP}'
+set firewall group address-group k8s_ingress address ${INGRESS_IP}
 
 set firewall group address-group k8s_nodes address '${UIHARU_ADDR}'
 set firewall group address-group k8s_nodes address '${ANYA_ADDR}'
