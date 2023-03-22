@@ -59,6 +59,14 @@ set firewall name local-lan enable-default-log
 # set firewall name local-lan rule 1 description 'Rule: accept_igmp'
 # set firewall name local-lan rule 1 protocol '2'
 
+# From LOCAL to SERVICES
+set firewall name local-services default-action 'accept'
+set firewall name local-services description 'From LOCAL to SERVICES'
+set firewall name local-services rule 1 action 'accept'
+set firewall name local-services rule 1 description 'Rule: accept_dns'
+set firewall name local-services rule 1 destination port 'domain,domain-s'
+set firewall name local-services rule 1 protocol 'tcp_udp'
+
 # From LOCAL to WAN
 set firewall name local-wan default-action 'accept'
 set firewall name local-wan description 'From LOCAL to WAN'
