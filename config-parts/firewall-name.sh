@@ -33,7 +33,7 @@ set firewall name lan-local rule 6 source group address-group 'k8s_nodes'
 set firewall name lan-local rule 7 description 'Rule: accept_vyos_api'
 set firewall name lan-local rule 7 destination port '8443'
 set firewall name lan-local rule 7 protocol 'tcp'
-
+set firewall name lan-local rule 7 action 'accept'
 
 # From LAN to SERVICES
 set firewall name lan-services default-action 'accept'
