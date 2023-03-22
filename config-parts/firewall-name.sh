@@ -55,9 +55,9 @@ set firewall name lan-wan description 'From LAN to WAN'
 set firewall name local-lan default-action 'drop'
 set firewall name local-lan description 'From LOCAL to LAN'
 set firewall name local-lan enable-default-log
-set firewall name local-lan rule 1 action 'accept'
-set firewall name local-lan rule 1 description 'Rule: accept_igmp'
-set firewall name local-lan rule 1 protocol '2'
+# set firewall name local-lan rule 1 action 'accept'
+# set firewall name local-lan rule 1 description 'Rule: accept_igmp'
+# set firewall name local-lan rule 1 protocol '2'
 
 # From LOCAL to WAN
 set firewall name local-wan default-action 'accept'
