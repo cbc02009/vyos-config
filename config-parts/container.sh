@@ -3,19 +3,6 @@
 # Container networks
 set container network services prefix '10.5.0.0/24'
 
-# cloudflare-ddns
-# set container name cloudflare-ddns allow-host-networks
-# set container name cloudflare-ddns environment CF_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-# set container name cloudflare-ddns environment DOMAINS value 'ipv4.schorgers.nl,ipv4.ctec.run,ipv4.kokoro.wtf,ipv4.bjws.nl'
-# set container name cloudflare-ddns environment IP6_PROVIDER value "none"
-# set container name cloudflare-ddns environment TZ value 'Europe/Amsterdam'
-# set container name cloudflare-ddns environment PGID value "1000"
-# set container name cloudflare-ddns environment PUID value "1000"
-# set container name cloudflare-ddns image 'docker.io/favonia/cloudflare-ddns:1.9.1'
-# set container name cloudflare-ddns memory '0'
-# set container name cloudflare-ddns restart 'on-failure'
-# set container name cloudflare-ddns shared-memory '0'
-
 # coredns - main instance
 set container name coredns cap-add 'net-bind-service'
 set container name coredns image 'docker.io/coredns/coredns:1.10.1'
@@ -44,16 +31,6 @@ set container name dnsdist shared-memory '0'
 set container name dnsdist volume config destination '/etc/dnsdist/dnsdist.conf'
 set container name dnsdist volume config source '/config/containers/dnsdist/config/dnsdist.conf'
 set container name dnsdist volume config mode 'ro'
-
-# haproxy-k8s-api
-# set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.7.5'
-# set container name haproxy-k8s-api memory '0'
-# set container name haproxy-k8s-api network services address '10.5.0.2'
-# set container name haproxy-k8s-api restart 'on-failure'
-# set container name haproxy-k8s-api shared-memory '0'
-# set container name haproxy-k8s-api volume config destination '/usr/local/etc/haproxy/haproxy.cfg'
-# set container name haproxy-k8s-api volume config source '/config/containers/haproxy/config/haproxy.cfg'
-# set container name haproxy-k8s-api volume config mode 'ro'
 
 # node-exporter
 set container name node-exporter environment procfs value '/host/proc'
