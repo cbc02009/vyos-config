@@ -46,14 +46,14 @@ set container name dnsdist volume config source '/config/containers/dnsdist/conf
 set container name dnsdist volume config mode 'ro'
 
 # haproxy-k8s-api
-set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.7.5'
-set container name haproxy-k8s-api memory '0'
-set container name haproxy-k8s-api network services address '10.5.0.2'
-set container name haproxy-k8s-api restart 'on-failure'
-set container name haproxy-k8s-api shared-memory '0'
-set container name haproxy-k8s-api volume config destination '/usr/local/etc/haproxy/haproxy.cfg'
-set container name haproxy-k8s-api volume config source '/config/containers/haproxy/config/haproxy.cfg'
-set container name haproxy-k8s-api volume config mode 'ro'
+# set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.7.5'
+# set container name haproxy-k8s-api memory '0'
+# set container name haproxy-k8s-api network services address '10.5.0.2'
+# set container name haproxy-k8s-api restart 'on-failure'
+# set container name haproxy-k8s-api shared-memory '0'
+# set container name haproxy-k8s-api volume config destination '/usr/local/etc/haproxy/haproxy.cfg'
+# set container name haproxy-k8s-api volume config source '/config/containers/haproxy/config/haproxy.cfg'
+# set container name haproxy-k8s-api volume config mode 'ro'
 
 # node-exporter
 set container name node-exporter environment procfs value '/host/proc'
