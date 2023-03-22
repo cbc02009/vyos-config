@@ -2,15 +2,20 @@
 /*
 
 # Track certain files and directories
+!.taskfiles/
 !.gitignore
 !.sops.yaml
 !apply-config.sh
 !secrets.sops.env
+!LICENSE
+!.pre-commit-config.yaml
+!.Taskfile.yaml
 
 # VyOS config
 !scripts/
 !config-parts/
 !containers/
+
 
 # CI
 !.github/
