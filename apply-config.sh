@@ -23,8 +23,6 @@ done
 if [ -f "/config/secrets.sops.env" ]; then
   export SOPS_AGE_KEY_FILE=/config/secrets/age.key
 
-  echo "Found secrets.sops.env!"
-
   mapfile environmentAsArray < <(
     sops --decrypt "/config/secrets.sops.env" \
       | grep --invert-match '^#' \
@@ -57,8 +55,6 @@ else
   # Pull new container images
   AVAILABLE_IMAGES=($(run show container image | awk '{ if ( NR > 1  ) { print $1 ":" $2} }'))
   CONFIG_IMAGES=($(sed -nr "s/set container name .* image '(.*)'/\1/p" /config/config-parts/* | uniq))
-
-  echo $CONFIG_IMAGES
 
   for image in "${CONFIG_IMAGES[@]}"
   do
