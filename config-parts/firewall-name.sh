@@ -45,6 +45,7 @@ set firewall name lan-services rule 1 protocol 'tcp_udp'
 set firewall name lan-services rule 2 description 'Rule: accept_k8s_api'
 set firewall name lan-services rule 2 destination port '6443'
 set firewall name lan-services rule 2 protocol 'tcp'
+set firewall name lan-services rule 2 action 'accept'
 
 # From LAN to WAN
 set firewall name lan-wan default-action 'accept'
@@ -105,6 +106,10 @@ set firewall name wan-local rule 1 action 'accept'
 set firewall name wan-local rule 1 description 'Rule: accept_wireguard'
 set firewall name wan-local rule 1 destination port '51820'
 set firewall name wan-local rule 1 protocol 'udp'
+set firewall name lan-local rule 2 action 'accept'
+set firewall name lan-local rule 2 description 'Rule: accept_ssh'
+set firewall name lan-local rule 2 destination port 'ssh'
+set firewall name lan-local rule 2 protocol 'tcp'
 
 # From WAN to SERVICES
 set firewall name wan-services default-action 'drop'
