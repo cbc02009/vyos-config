@@ -14,3 +14,9 @@ set nat destination rule 101 inbound-interface 'eth0'
 set nat destination rule 101 protocol 'tcp'
 set nat destination rule 101 translation address ${INGRESS_IP}
 set nat destination rule 101 translation port '80'
+
+# LAN -> WAN masquerade
+set nat source rule 100 description 'LAN -> WAN'
+set nat source rule 100 destination address '0.0.0.0/0'
+set nat source rule 100 outbound-interface 'eth0'
+set nat source rule 100 translation address 'masquerade'
