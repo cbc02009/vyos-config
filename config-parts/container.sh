@@ -6,7 +6,7 @@ set container network services prefix '10.5.0.0/24'
 # cloudflare-ddns
 set container name cloudflare-ddns allow-host-networks
 set container name cloudflare-ddns environment CF_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-set container name cloudflare-ddns environment DOMAINS value 'ipv4.kokoro.wtf,ipv4.ctec.run'
+set container name cloudflare-ddns environment DOMAINS value 'ipv4.kokoro.wtf'
 set container name cloudflare-ddns environment IP6_PROVIDER value "none"
 set container name cloudflare-ddns environment TZ value ${TZ}
 set container name cloudflare-ddns environment PGID value "1000"
