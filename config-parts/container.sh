@@ -70,17 +70,3 @@ set container name speedtest-exporter memory '0'
 set container name speedtest-exporter network services address '10.5.0.8'
 set container name speedtest-exporter restart 'on-failure'
 set container name speedtest-exporter shared-memory '0'
-
-# unifi
-set container name unifi environment RUNAS_UID0 value 'false'
-set container name unifi environment TZ value ${TZ}
-set container name unifi environment UNIFI_GID value '999'
-set container name unifi environment UNIFI_STDOUT value 'true'
-set container name unifi environment UNIFI_UID value '999'
-set container name unifi image 'ghcr.io/jacobalberty/unifi-docker:v7.3.83'
-set container name unifi memory '0'
-set container name unifi network services address '10.5.0.10'
-set container name unifi restart 'on-failure'
-set container name unifi shared-memory '0'
-set container name unifi volume data destination '/unifi'
-set container name unifi volume data source '/config/containers/unifi'

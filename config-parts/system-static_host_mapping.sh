@@ -4,7 +4,7 @@ set system static-host-mapping host-name gateway.ctec.run alias vpn.kokoro.wtf
 set system static-host-mapping host-name gateway.ctec.run alias ipv4.kokoro.wtf
 
 # Unifi controller
-set system static-host-mapping host-name unifi.ctec.run inet 10.5.0.10
+set system static-host-mapping host-name unifi.ctec.run inet 10.0.1.10
 set system static-host-mapping host-name unifi.ctec.run alias unifi
 
 # NAS
