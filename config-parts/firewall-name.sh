@@ -75,11 +75,10 @@ set firewall name local-wan description 'From LOCAL to WAN'
 set firewall name services-lan default-action 'drop'
 set firewall name services-lan description 'From SERVICES to LAN'
 set firewall name services-lan enable-default-log
-set firewall name services-local rule 1 action 'accept'
-set firewall name services-local rule 1 description 'Rule: accept_dhcp'
-set firewall name services-local rule 1 destination port '67,68'
-set firewall name services-local rule 1 protocol 'udp'
-set firewall name services-local rule 1 source port '67,68'
+set firewall name services-lan rule 1 action 'accept'
+set firewall name services-lan rule 1 description 'Rule: accept_dns'
+set firewall name services-lan rule 1 destination port 'domain,domain-s'
+set firewall name services-lan rule 1 protocol 'tcp_udp'
 
 # From SERVICES to LOCAL
 set firewall name services-local default-action 'drop'
