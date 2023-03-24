@@ -9,6 +9,8 @@ set system login user vyos authentication public-keys Shinobu key 'AAAAC3NzaC1lZ
 set system login user vyos authentication public-keys Shinobu type 'ssh-ed25519'
 set system login user vyos authentication public-keys Yuzu key 'AAAAC3NzaC1lZDI1NTE5AAAAIDsav6iUbSXpAyLG7JSN9UGcSf42uopBpDlUtRV/eXng'
 set system login user vyos authentication public-keys Yuzu type 'ssh-ed25519'
+set system login user vyos authentication public-keys Sulleta key 'AAAAC3NzaC1lZDI1NTE5AAAAIGTj3MMx5xpemNeye6j3iJjnQq7L0I4RRSicLI1AFUXh'
+set system login user vyos authentication public-keys Sulleta type 'ssh-ed25519'
 
 set system name-server '1.1.1.1'
 
