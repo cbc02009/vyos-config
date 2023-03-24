@@ -13,4 +13,4 @@ mkdir -p "$backupdest"
 
 # TODO
 # TODO
-mount.exfat-fuse -o rw,uid=vyos,gid=vyattacfg /dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401853931cd180d6b2371659b9f24f92dd8e4bd8a39ebee5f7163a1785d2ff3221700000000000000000000dcdd864500076b1883558107c0accd55-0:0-part2 "$backupdest"
+mount.exfat-fuse -o rw,uid=vyos,gid=vyattacfg /dev/disk/by-id/usb-Kingston_DataTraveler_3.0_60A44C426697F210C9890060-0:0-part1 "$backupdest"
