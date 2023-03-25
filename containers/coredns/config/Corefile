@@ -15,7 +15,7 @@
 }
 
 (k8s_gateway) {
-  forward . 10.0.1.4:53
+  forward . 10.0.0.73:53
 }
 
 unifi {
