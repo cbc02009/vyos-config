@@ -446,6 +446,12 @@ set firewall name wan-lan rule 1 destination group address-group 'k8s_ingress'
 set firewall name wan-lan rule 1 destination port 'http,https'
 set firewall name wan-lan rule 1 protocol 'tcp'
 set firewall name wan-lan rule 1 source group network-group 'cloudflare-ipv4'
+set firewall name wan-lan rule 2 action 'accept'
+set firewall name wan-lan rule 2 description 'Rule: accept_ingress_from_Plex'
+set firewall name wan-lan rule 2 destination address ${LB_PLEX}
+set firewall name wan-lan rule 2 destination port '32400'
+set firewall name wan-lan rule 2 protocol 'tcp_udp'
+set firewall name wan-lan rule 2 state new 'enable'
 
 # From WAN to LOCAL
 set firewall name wan-local default-action 'drop'
