@@ -1,13 +1,5 @@
 #!/bin/vbash
 
-#Plex NAT
-set nat destination rule 99 description 'Plex'
-set nat destination rule 99 destination port '32701'
-set nat destination rule 99 inbound-interface ${INT_WAN}
-set nat destination rule 99 protocol 'tcp_udp'
-set nat destination rule 99 translation address ${LB_PLEX}
-set nat destination rule 99 translation port '32400'
-
 # Forward HTTP(S) to ingress
 set nat destination rule 100 description 'HTTPS'
 set nat destination rule 100 destination port '443'

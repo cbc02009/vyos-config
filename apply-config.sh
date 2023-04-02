@@ -28,6 +28,14 @@ if [ -f "/config/secrets.sops.env" ]; then
       | grep --invert-match '^#' \
         | grep --invert-match '^\s*$'
   ) # Uses grep to remove commented and blank lines
+  mapfile array2 < <(
+      cat "/config/vyos.env" \
+      | grep --invert-match '^#' \
+        | grep --invert-match '^\s*$'
+  )
+
+  environmentAsArray+=(${array2[*]})
+
   for variableDeclaration in "${environmentAsArray[@]}"; do
     export "${variableDeclaration//[$'\r\n']}" # The substitution removes the line breaks
   done

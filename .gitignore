@@ -7,6 +7,7 @@
 !.sops.yaml
 !apply-config.sh
 !secrets.sops.env
+!vyos.env
 !LICENSE
 !.pre-commit-config.yaml
 !.Taskfile.yaml

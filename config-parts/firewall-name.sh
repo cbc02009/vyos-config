@@ -394,9 +394,6 @@ set firewall name trusted-servers rule 1 action 'accept'
 set firewall name trusted-servers rule 1 description 'Rule: accept_icmp'
 set firewall name trusted-servers rule 1 protocol 'icmp'
 set firewall name trusted-servers rule 2 action 'accept'
-set firewall name trusted-servers rule 2 description 'Rule: accept_plex_from_plex_clients'
-set firewall name trusted-servers rule 2 destination group address-group 'k8s_plex'
-set firewall name trusted-servers rule 2 destination port '32400'
 
 # From TRUSTED to SERVICES
 set firewall name trusted-services default-action 'accept'
@@ -444,12 +441,6 @@ set firewall name wan-servers rule 1 destination group address-group 'k8s_ingres
 set firewall name wan-servers rule 1 destination port 'http,https'
 set firewall name wan-servers rule 1 protocol 'tcp'
 set firewall name wan-servers rule 1 source group network-group 'cloudflare-ipv4'
-set firewall name wan-servers rule 2 action 'accept'
-set firewall name wan-servers rule 2 description 'Rule: accept_ingress_from_Plex'
-set firewall name wan-servers rule 2 destination address ${LB_PLEX}
-set firewall name wan-servers rule 2 destination port '32400'
-set firewall name wan-servers rule 2 protocol 'tcp_udp'
-set firewall name wan-servers rule 2 state new 'enable'
 
 # From WAN to SERVICES
 set firewall name wan-services default-action 'drop'
