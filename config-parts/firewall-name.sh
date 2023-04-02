@@ -103,7 +103,6 @@ set firewall name lan-iot description 'From LAN to IOT'
 set firewall name lan-iot enable-default-log
 
 # From LAN to LOCAL
-# TODO REDUCE PERMISSIONS AFTER VLAN SETUP
 set firewall name lan-local default-action 'drop'
 set firewall name lan-local description 'From LAN to LOCAL'
 set firewall name lan-local enable-default-log
@@ -120,23 +119,6 @@ set firewall name lan-local rule 3 description 'Rule: accept_dhcp'
 set firewall name lan-local rule 3 destination port '67,68'
 set firewall name lan-local rule 3 protocol 'udp'
 set firewall name lan-local rule 3 source port '67,68'
-set firewall name lan-local rule 4 action 'accept'
-set firewall name lan-local rule 4 description 'Rule: accept_bgp'
-set firewall name lan-local rule 4 destination port 'bgp'
-set firewall name lan-local rule 4 protocol 'tcp'
-set firewall name lan-local rule 5 action 'accept'
-set firewall name lan-local rule 5 description 'Rule: accept_tftp'
-set firewall name lan-local rule 5 destination port '69'
-set firewall name lan-local rule 5 protocol 'udp'
-set firewall name lan-local rule 6 action 'accept'
-set firewall name lan-local rule 6 description 'Rule: accept_prometheus_from_k8s_nodes'
-set firewall name lan-local rule 6 destination port '9153'
-set firewall name lan-local rule 6 protocol 'tcp'
-set firewall name lan-local rule 6 source group address-group 'k8s_nodes'
-set firewall name lan-local rule 7 description 'Rule: accept_vyos_api'
-set firewall name lan-local rule 7 destination port '8443'
-set firewall name lan-local rule 7 protocol 'tcp'
-set firewall name lan-local rule 7 action 'accept'
 
 # From LAN to SERVERS
 set firewall name lan-servers default-action 'drop'
@@ -326,11 +308,6 @@ set firewall name services-iot enable-default-log
 set firewall name services-lan default-action 'drop'
 set firewall name services-lan description 'From SERVICES to LAN'
 set firewall name services-lan enable-default-log
-# TODO REMOVE ONCE VLANS SET UP
-set firewall name services-lan rule 1 action 'accept'
-set firewall name services-lan rule 1 description 'Rule: accept_dns'
-set firewall name services-lan rule 1 destination port 'domain,domain-s'
-set firewall name services-lan rule 1 protocol 'tcp_udp'
 
 # From SERVICES to LOCAL
 set firewall name services-local default-action 'drop'
@@ -377,6 +354,10 @@ set firewall name trusted-iot rule 1 protocol 'icmp'
 # From TRUSTED to LAN
 set firewall name trusted-lan default-action 'accept'
 set firewall name trusted-lan description 'From TRUSTED to LAN'
+set firewall name trusted-lan rule 1 action 'accept'
+set firewall name trusted-lan rule 1 description 'Rule: accept_ssh'
+set firewall name trusted-lan rule 1 destination port 'ssh'
+set firewall name trusted-lan rule 1 protocol 'tcp'
 
 # From TRUSTED to LOCAL
 set firewall name trusted-local default-action 'drop'
@@ -412,6 +393,10 @@ set firewall name trusted-servers description 'From TRUSTED to SERVERS'
 set firewall name trusted-servers rule 1 action 'accept'
 set firewall name trusted-servers rule 1 description 'Rule: accept_icmp'
 set firewall name trusted-servers rule 1 protocol 'icmp'
+set firewall name trusted-servers rule 2 action 'accept'
+set firewall name trusted-servers rule 2 description 'Rule: accept_plex_from_plex_clients'
+set firewall name trusted-servers rule 2 destination group address-group 'k8s_plex'
+set firewall name trusted-servers rule 2 destination port '32400'
 
 # From TRUSTED to SERVICES
 set firewall name trusted-services default-action 'accept'
@@ -439,19 +424,6 @@ set firewall name wan-iot enable-default-log
 set firewall name wan-lan default-action 'drop'
 set firewall name wan-lan description 'From WAN to LAN'
 set firewall name wan-lan enable-default-log
-# TODO REMOVE AFTER VLANS SET UP
-set firewall name wan-lan rule 1 action 'accept'
-set firewall name wan-lan rule 1 description 'Rule: accept_ingress_from_cloudflare'
-set firewall name wan-lan rule 1 destination group address-group 'k8s_ingress'
-set firewall name wan-lan rule 1 destination port 'http,https'
-set firewall name wan-lan rule 1 protocol 'tcp'
-set firewall name wan-lan rule 1 source group network-group 'cloudflare-ipv4'
-set firewall name wan-lan rule 2 action 'accept'
-set firewall name wan-lan rule 2 description 'Rule: accept_ingress_from_Plex'
-set firewall name wan-lan rule 2 destination address ${LB_PLEX}
-set firewall name wan-lan rule 2 destination port '32400'
-set firewall name wan-lan rule 2 protocol 'tcp_udp'
-set firewall name wan-lan rule 2 state new 'enable'
 
 # From WAN to LOCAL
 set firewall name wan-local default-action 'drop'
@@ -472,6 +444,12 @@ set firewall name wan-servers rule 1 destination group address-group 'k8s_ingres
 set firewall name wan-servers rule 1 destination port 'http,https'
 set firewall name wan-servers rule 1 protocol 'tcp'
 set firewall name wan-servers rule 1 source group network-group 'cloudflare-ipv4'
+set firewall name wan-servers rule 2 action 'accept'
+set firewall name wan-servers rule 2 description 'Rule: accept_ingress_from_Plex'
+set firewall name wan-servers rule 2 destination address ${LB_PLEX}
+set firewall name wan-servers rule 2 destination port '32400'
+set firewall name wan-servers rule 2 protocol 'tcp_udp'
+set firewall name wan-servers rule 2 state new 'enable'
 
 # From WAN to SERVICES
 set firewall name wan-services default-action 'drop'

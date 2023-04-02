@@ -8,23 +8,24 @@ set system static-host-mapping host-name unifi.ctec.run inet 10.0.0.79
 set system static-host-mapping host-name unifi.ctec.run alias unifi
 
 # NAS
-set system static-host-mapping host-name shana.ctec.run inet 10.0.0.4
+set system static-host-mapping host-name shana.ctec.run inet 10.0.2.4
 set system static-host-mapping host-name shana.ctec.run alias nas.ctec.run
 set system static-host-mapping host-name shana.ctec.run alias garage.kokoro.wtf
 set system static-host-mapping host-name shana.ctec.run alias s3.kokoro.wtf
 
 # Kubernetes hosts
-set system static-host-mapping host-name uiharu.ctec.run inet 10.0.0.10
-set system static-host-mapping host-name anya.ctec.run inet 10.0.0.11
-set system static-host-mapping host-name sakura.ctec.run inet 10.0.0.12
-set system static-host-mapping host-name rem.ctec.run inet 10.0.0.13
-set system static-host-mapping host-name ram.ctec.run inet 10.0.0.14
+set system static-host-mapping host-name uiharu.ctec.run inet ${UIHARU_ADDR}
+set system static-host-mapping host-name anya.ctec.run inet ${ANYA_ADDR}
+set system static-host-mapping host-name sakura.ctec.run inet ${ANYA_ADDR}
+set system static-host-mapping host-name rem.ctec.run inet ${REM_ADDR}
+set system static-host-mapping host-name ram.ctec.run inet ${RAM_ADDR}
 
 # LXD Containers
-set system static-host-mapping host-name minio.ctec.run inet 10.0.0.97
-set system static-host-mapping host-name flexo.ctec.run inet 10.0.0.98
+set system static-host-mapping host-name minio.ctec.run inet 10.0.2.97
+set system static-host-mapping host-name flexo.ctec.run inet 10.0.2.98
+set system static-host-mapping host-name postgres.ctec.run inet 10.0.2.94
 
 # Kubernetes cluster VIP
-set system static-host-mapping host-name cluster.ctec.run inet 10.0.0.9
+set system static-host-mapping host-name cluster.ctec.run inet 10.5.0.2
 
 # Other hosts
