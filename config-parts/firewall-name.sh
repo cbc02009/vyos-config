@@ -24,6 +24,11 @@ set firewall name guest-local rule 1 source port '67,68'
 set firewall name guest-servers default-action 'drop'
 set firewall name guest-servers description 'From GUEST to SERVERS'
 set firewall name guest-servers enable-default-log
+set firewall name guest-servers rule 1 action 'accept'
+set firewall name guest-servers rule 1 description 'Rule: accept_plex_from_plex_clients'
+set firewall name guest-servers rule 1 destination group address-group 'k8s_plex'
+set firewall name guest-servers rule 1 destination port '32400'
+set firewall name guest-servers rule 1 protocol 'tcp'
 
 # From GUEST to SERVICES
 set firewall name guest-services default-action 'drop'
@@ -200,6 +205,11 @@ set firewall name local-trusted enable-default-log
 set firewall name local-trusted rule 1 action 'accept'
 set firewall name local-trusted rule 1 description 'Rule: accept_igmp'
 set firewall name local-trusted rule 1 protocol '2'
+set firewall name local-trusted rule 2 action 'accept'
+set firewall name local-trusted rule 2 description 'Rule: accept_iperf_3'
+set firewall name local-trusted rule 2 destination port '5201'
+set firewall name local-trusted rule 2 protocol 'tcp_udp'
+
 
 # From LOCAL to WAN
 set firewall name local-wan default-action 'accept'
@@ -269,6 +279,10 @@ set firewall name servers-local rule 7 description 'Rule: accept_speedtest_expor
 set firewall name servers-local rule 7 destination port '9798'
 set firewall name servers-local rule 7 protocol 'tcp'
 set firewall name servers-local rule 7 source group address-group 'k8s_nodes'
+set firewall name servers-local rule 8 action 'accept'
+set firewall name servers-local rule 8 description 'Rule: accept_iperf_3'
+set firewall name servers-local rule 8 destination port '5201'
+set firewall name servers-local rule 8 protocol 'tcp_udp'
 
 # From SERVERS to SERVICES
 set firewall name servers-services default-action 'accept'
@@ -386,6 +400,10 @@ set firewall name trusted-local rule 7 action 'accept'
 set firewall name trusted-local rule 7 description 'Rule: accept_vyos_api'
 set firewall name trusted-local rule 7 destination port '8443'
 set firewall name trusted-local rule 7 protocol 'tcp'
+set firewall name trusted-local rule 8 action 'accept'
+set firewall name trusted-local rule 8 description 'Rule: accept_iperf_3'
+set firewall name trusted-local rule 8 destination port '5201'
+set firewall name trusted-local rule 8 protocol 'tcp_udp'
 
 # From TRUSTED to SERVERS
 set firewall name trusted-servers default-action 'accept'
