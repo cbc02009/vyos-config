@@ -7,6 +7,7 @@ set firewall zone guest from local firewall name 'local-guest'
 set firewall zone guest from servers firewall name 'servers-guest'
 set firewall zone guest from services firewall name 'services-guest'
 set firewall zone guest from trusted firewall name 'trusted-guest'
+set firewall zone guest from video firewall name 'video-guest'
 set firewall zone guest from wan firewall name 'wan-guest'
 set firewall zone guest interface ${INT_GUEST}
 
@@ -17,6 +18,7 @@ set firewall zone iot from local firewall name 'local-iot'
 set firewall zone iot from servers firewall name 'servers-iot'
 set firewall zone iot from services firewall name 'services-iot'
 set firewall zone iot from trusted firewall name 'trusted-iot'
+set firewall zone iot from video firewall name 'video-iot'
 set firewall zone iot from wan firewall name 'wan-iot'
 set firewall zone iot interface ${INT_IOT}
 
@@ -27,6 +29,7 @@ set firewall zone lan from local firewall name 'local-lan'
 set firewall zone lan from servers firewall name 'servers-lan'
 set firewall zone lan from services firewall name 'services-lan'
 set firewall zone lan from trusted firewall name 'trusted-lan'
+set firewall zone lan from video firewall name 'video-lan'
 set firewall zone lan from wan firewall name 'wan-lan'
 set firewall zone lan interface ${INT_LAN}
 
@@ -38,6 +41,7 @@ set firewall zone local from lan firewall name 'lan-local'
 set firewall zone local from servers firewall name 'servers-local'
 set firewall zone local from services firewall name 'services-local'
 set firewall zone local from trusted firewall name 'trusted-local'
+set firewall zone local from video firewall name 'video-local'
 set firewall zone local from wan firewall name 'wan-local'
 set firewall zone local local-zone
 
@@ -48,6 +52,7 @@ set firewall zone servers from lan firewall name 'lan-servers'
 set firewall zone servers from local firewall name 'local-servers'
 set firewall zone servers from services firewall name 'services-servers'
 set firewall zone servers from trusted firewall name 'trusted-servers'
+set firewall zone servers from video firewall name 'video-servers'
 set firewall zone servers from wan firewall name 'wan-servers'
 set firewall zone servers interface ${INT_SERVERS}
 
@@ -59,6 +64,7 @@ set firewall zone services from lan firewall name 'lan-services'
 set firewall zone services from local firewall name 'local-services'
 set firewall zone services from servers firewall name 'servers-services'
 set firewall zone services from trusted firewall name 'trusted-services'
+set firewall zone services from video firewall name 'video-services'
 set firewall zone services from wan firewall name 'wan-services'
 set firewall zone services interface 'cni-services'
 
@@ -69,9 +75,21 @@ set firewall zone trusted from lan firewall name 'lan-trusted'
 set firewall zone trusted from local firewall name 'local-trusted'
 set firewall zone trusted from servers firewall name 'servers-trusted'
 set firewall zone trusted from services firewall name 'services-trusted'
+set firewall zone trusted from video firewall name 'video-trusted'
 set firewall zone trusted from wan firewall name 'wan-trusted'
 set firewall zone trusted interface ${INT_TRUST}
-# set firewall zone trusted interface 'wg01'
+set firewall zone trusted interface 'wg01'
+
+set firewall zone video default-action 'drop'
+set firewall zone video from guest firewall name 'guest-video'
+set firewall zone video from iot firewall name 'iot-video'
+set firewall zone video from lan firewall name 'lan-video'
+set firewall zone video from local firewall name 'local-video'
+set firewall zone video from servers firewall name 'servers-video'
+set firewall zone video from services firewall name 'services-video'
+set firewall zone video from trusted firewall name 'trusted-video'
+set firewall zone video from wan firewall name 'wan-video'
+set firewall zone video interface ${INT_VIDEO}
 
 set firewall zone wan from guest firewall name 'guest-wan'
 set firewall zone wan from iot firewall name 'iot-wan'
@@ -80,4 +98,5 @@ set firewall zone wan from local firewall name 'local-wan'
 set firewall zone wan from servers firewall name 'servers-wan'
 set firewall zone wan from services firewall name 'services-wan'
 set firewall zone wan from trusted firewall name 'trusted-wan'
+set firewall zone wan from video firewall name 'video-wan'
 set firewall zone wan interface ${INT_WAN}

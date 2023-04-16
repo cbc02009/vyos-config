@@ -22,6 +22,8 @@ set system static-host-mapping host-name ram.ctec.run inet ${RAM_ADDR}
 set system static-host-mapping host-name minio.ctec.run inet 10.0.2.97
 set system static-host-mapping host-name flexo.ctec.run inet 10.0.2.98
 set system static-host-mapping host-name postgres.ctec.run inet 10.0.2.94
+set system static-host-mapping host-name talos.ctec.run inet 10.0.2.93
+set system static-host-mapping host-name builder.ctec.run inet 10.0.2.95
 set system static-host-mapping host-name garage.ctec.run inet 10.0.2.99
 set system static-host-mapping host-name garage.ctec.run alias garage.ctec.run
 set system static-host-mapping host-name garage.ctec.run alias s3.ctec.run

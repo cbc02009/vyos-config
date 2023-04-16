@@ -26,11 +26,27 @@ set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mappin
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping hp823c1f mac-address '48:BA:4E:82:3C:20'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Camera1 ip-address '10.0.3.10'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Camera1 mac-address '38:E7:C0:C3:7D:A2'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Smartswitch-Office ip-address '10.0.3.20'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Smartswitch-Office mac-address '54:af:97:09:1a:02'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Smartswitch-Server ip-address '10.0.3.21'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Smartswitch-Server mac-address '10:27:f5:a1:59:cd'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Dishwasher ip-address '10.0.3.30'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Dishwasher mac-address '40:ca:63:35:cb:dc'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Fridge ip-address '10.0.3.31'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Fridge mac-address '40:ca:63:1e:87:7c'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Range ip-address '10.0.3.32'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Range mac-address '88:57:1d:9a:c3:b1'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Living-Room ip-address '10.0.3.60'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Living-Room mac-address '44:61:32:63:ce:dc'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Upstairs ip-address '10.0.3.61'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Upstairs mac-address '44:61:32:9d:f4:31'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom ip-address '10.0.3.62'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom mac-address '44:61:32:fc:3b:5d'
 
 # LAN
 set service dhcp-server shared-network-name LAN authoritative
 set service dhcp-server shared-network-name LAN ping-check
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 default-router ${GATEWAY_LAN}
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 default-router '10.0.0.1'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 lease '86400'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 name-server '10.5.0.4'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 range 0 start '10.0.0.200'
@@ -81,9 +97,6 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-ma
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres ip-address '10.0.2.94'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres mac-address '00:16:3e:50:ee:4f'
 
-
-
-
 # Trusted VLAN
 set service dhcp-server shared-network-name TRUSTED authoritative
 set service dhcp-server shared-network-name TRUSTED ping-check
@@ -104,3 +117,16 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-ma
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Sulleta mac-address '18:C0:4D:6A:18:E3'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Misaka ip-address '10.0.1.60'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Misaka mac-address '98:3b:8f:ce:2e:85'
+
+# Video VLAN
+set service dhcp-server shared-network-name VIDEO authoritative
+set service dhcp-server shared-network-name VIDEO ping-check
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 default-router '10.0.4.1'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 domain-name 'ctec.run'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 lease '86400'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 range 0 start '10.0.4.200'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 range 0 stop '10.0.4.254'
+
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell ip-address '10.0.4.10'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell mac-address '38:E7:C0:C3:7D:A2'

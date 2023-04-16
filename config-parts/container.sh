@@ -36,7 +36,8 @@ set container name coredns volume vyoshosts mode 'ro'
 # dnsdist
 set container name dnsdist cap-add 'net-bind-service'
 set container name dnsdist environment TZ value ${TZ}
-set container name dnsdist image 'docker.io/powerdns/dnsdist-17:1.7.3'
+set container name dnsdist image 'docker.io/powerdns/dnsdist-18:1.8.0'
+set container name dnsdist arguments '--log-timestamps'
 set container name dnsdist memory '0'
 set container name dnsdist network services address '10.5.0.4'
 set container name dnsdist restart 'on-failure'
@@ -61,7 +62,7 @@ set container name node-exporter environment rootfs value '/host/rootfs'
 set container name node-exporter environment sysfs value '/host/sys'
 set container name node-exporter image 'quay.io/prometheus/node-exporter:v1.5.0'
 set container name node-exporter memory '0'
-set container name node-exporter network services address '10.5.0.7'
+set container name node-exporter allow-host-networks
 set container name node-exporter restart 'on-failure'
 set container name node-exporter shared-memory '0'
 set container name node-exporter volume procfs destination '/host/proc'
@@ -77,7 +78,7 @@ set container name node-exporter volume sysfs source '/sys'
 # speedtest-exporter
 set container name speedtest-exporter image 'ghcr.io/miguelndecarvalho/speedtest-exporter:v3.5.3'
 set container name speedtest-exporter memory '0'
-set container name speedtest-exporter network services address '10.5.0.8'
+set container name speedtest-exporter allow-host-networks
 set container name speedtest-exporter restart 'on-failure'
 set container name speedtest-exporter shared-memory '0'
 
@@ -105,4 +106,3 @@ set container name adguardhome volume data destination '/opt/adguardhome/work'
 set container name adguardhome volume data source '/config/containers/adguardhome/data'
 set container name adguardhome volume data destination '/opt/adguardhome/conf'
 set container name adguardhome volume data source '/config/containers/adguardhome/conf'
-
