@@ -51,7 +51,5 @@ set firewall group network-group cloudflare-ipv4 network '104.24.0.0/14'
 set firewall group network-group cloudflare-ipv4 network '172.64.0.0/13'
 set firewall group network-group cloudflare-ipv4 network '131.0.72.0/22'
 
-set firewall group network-group k8s_services network '10.0.1.0/25'
-
 # Port groups
 set firewall group port-group wireguard port '51820'
