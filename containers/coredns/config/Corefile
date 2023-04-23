@@ -1,6 +1,8 @@
 (common) {
   errors
-  log error
+  log . {
+    class error
+  }
   reload
   loadbalance
   cache
@@ -26,7 +28,7 @@ unifi {
   }
 }
 
-# Hack to prevent the gatway returning 127.0.0.1 from /etc/hosts
+# Hack to prevent the gateway returning 127.0.0.1 from /etc/hosts
 gateway.ctec.run {
   import common
   template IN A gateway.ctec.run {
@@ -46,13 +48,6 @@ kokoro.wtf {
 
 ctec.run {
   import common
-  hosts /host/etc/hosts {
-    ttl 1
-    reload 5s
-  }
-}
-
-0.10.in-addr.arpa {
   hosts /host/etc/hosts {
     ttl 1
     reload 5s

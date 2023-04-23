@@ -14,7 +14,7 @@ set system static-host-mapping host-name shana.ctec.run alias nas.ctec.run
 # Kubernetes hosts
 set system static-host-mapping host-name uiharu.ctec.run inet ${UIHARU_ADDR}
 set system static-host-mapping host-name anya.ctec.run inet ${ANYA_ADDR}
-set system static-host-mapping host-name sakura.ctec.run inet ${ANYA_ADDR}
+set system static-host-mapping host-name sakura.ctec.run inet ${SAKURA_ADDR}
 set system static-host-mapping host-name rem.ctec.run inet ${REM_ADDR}
 set system static-host-mapping host-name ram.ctec.run inet ${RAM_ADDR}
 
