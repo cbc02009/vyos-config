@@ -97,7 +97,7 @@ set container name unifi volume data destination '/unifi'
 set container name unifi volume data source '/config/containers/unifi'
 
 # AdguardHome
-set container name adguardhome image 'docker.io/adguard/adguardhome:v0.107.26'
+set container name adguardhome image 'docker.io/adguard/adguardhome:v0.107.29'
 set container name adguardhome memory '0'
 set container name adguardhome network services address '10.5.0.5'
 set container name adguardhome restart 'on-failure'
