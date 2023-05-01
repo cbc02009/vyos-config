@@ -46,7 +46,7 @@ kokoro.wtf {
   import k8s_gateway
 }
 
-ctec.run {
+. {
   import common
   hosts /host/etc/hosts {
     ttl 1

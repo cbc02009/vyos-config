@@ -14,11 +14,12 @@ set interfaces ethernet eth1 vif 50 description 'VIDEO'
 
 
 # ETH2 LAN/GUEST
-set interfaces ethernet eth2 hw-id '1c:fd:08:74:1b:0b'
+set interfaces ethernet eth2 hw-id '1c:fd:08:74:1b:0a'
 set interfaces ethernet eth2 address '10.0.0.1/24'
 set interfaces ethernet eth2 description 'LAN'
 set interfaces ethernet eth2 vif 30 address '192.168.2.1/24'
 set interfaces ethernet eth2 vif 30 description 'GUEST'
+
 
 # ETH3 BOND
 set interfaces ethernet eth3 hw-id 'e4:1d:2d:22:a9:40'

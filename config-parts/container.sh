@@ -96,13 +96,28 @@ set container name unifi shared-memory '0'
 set container name unifi volume data destination '/unifi'
 set container name unifi volume data source '/config/containers/unifi'
 
-# AdguardHome
-set container name adguardhome image 'docker.io/adguard/adguardhome:v0.107.29'
-set container name adguardhome memory '0'
-set container name adguardhome network services address '10.5.0.5'
-set container name adguardhome restart 'on-failure'
-set container name adguardhome shared-memory '0'
-set container name adguardhome volume data destination '/opt/adguardhome/work'
-set container name adguardhome volume data source '/config/containers/adguardhome/data'
-set container name adguardhome volume data destination '/opt/adguardhome/conf'
-set container name adguardhome volume data source '/config/containers/adguardhome/conf'
+# onepassword-connect
+set container name onepassword-connect image 'ghcr.io/cbc02009/onepassword-connect-api:1.7.0'
+set container name onepassword-connect environment TZ value ${TZ}
+set container name onepassword-connect memory '0'
+set container name onepassword-connect network services address '10.5.0.5'
+set container name onepassword-connect shared-memory '0'
+set container name onepassword-connect volume credentials source '/config/secrets/1password-credentials.json'
+set container name onepassword-connect volume credentials destination '/home/opuser/.op/1password-credentials.json'
+set container name onepassword-connect volume credentials mode 'ro'
+set container name onepassword-connect volume data source '/tmp/onepassword/data'
+set container name onepassword-connect volume data destination '/home/opuser/.op/data'
+set container name onepassword-connect volume data mode 'rw'
+
+# onepassword-sync
+set container name onepassword-sync image 'ghcr.io/cbc02009/onepassword-sync:1.7.0'
+set container name onepassword-sync environment TZ value ${TZ}
+set container name onepassword-sync memory '0'
+set container name onepassword-sync shared-memory '0'
+set container name onepassword-sync network services address '10.5.0.6'
+set container name onepassword-sync volume credentials source '/config/secrets/1password-credentials.json'
+set container name onepassword-sync volume credentials destination '/home/opuser/.op/1password-credentials.json'
+set container name onepassword-sync volume credentials mode 'ro'
+set container name onepassword-sync volume data source '/tmp/onepassword/data'
+set container name onepassword-sync volume data destination '/home/opuser/.op/data'
+set container name onepassword-sync volume data mode 'rw'

@@ -306,7 +306,7 @@ set firewall name servers-local rule 8 protocol 'tcp_udp'
 # From SERVERS to SERVICES
 set firewall name servers-services default-action 'accept'
 set firewall name servers-services description 'From SERVERS to SERVICES'
-set firewall name servers-services enable-default-log
+# set firewall name servers-services enable-default-log
 set firewall name servers-services rule 1 action 'accept'
 set firewall name servers-services rule 1 description 'Rule: accept_dns'
 set firewall name servers-services rule 1 destination port 'domain,domain-s'
@@ -322,11 +322,15 @@ set firewall name servers-trusted description 'From SERVERS to TRUSTED'
 set firewall name servers-trusted rule 1 action 'accept'
 set firewall name servers-trusted rule 1 description 'Rule: accept_icmp'
 set firewall name servers-trusted rule 1 protocol 'icmp'
+set firewall name servers-trusted rule 2 action 'accept'
+set firewall name servers-trusted rule 2 description 'Rule: accept_iperf_3'
+set firewall name servers-trusted rule 2 destination port '5201'
+set firewall name servers-trusted rule 2 protocol 'tcp_udp'
 
 # From SERVERS to VIDEO
 set firewall name servers-video default-action 'drop'
 set firewall name servers-video description 'From SERVERS to VIDEO'
-set firewall name servers-video enable-default-log
+# set firewall name servers-video enable-default-log
 set firewall name servers-video rule 1 action 'accept'
 set firewall name servers-video rule 1 description 'Rule: accept_icmp'
 set firewall name servers-video rule 1 protocol 'icmp'
@@ -342,22 +346,22 @@ set firewall name servers-wan description 'From SERVERS to WAN'
 # From SERVICES to GUEST
 set firewall name services-guest default-action 'drop'
 set firewall name services-guest description 'From SERVICES to GUEST'
-set firewall name services-guest enable-default-log
+# set firewall name services-guest enable-default-log
 
 # From SERVICES to IOT
 set firewall name services-iot default-action 'drop'
 set firewall name services-iot description 'From SERVICES to IOT'
-set firewall name services-iot enable-default-log
+# set firewall name services-iot enable-default-log
 
 # From SERVICES to LAN
 set firewall name services-lan default-action 'drop'
 set firewall name services-lan description 'From SERVICES to LAN'
-set firewall name services-lan enable-default-log
+# set firewall name services-lan enable-default-log
 
 # From SERVICES to LOCAL
 set firewall name services-local default-action 'drop'
 set firewall name services-local description 'From SERVICES to LOCAL'
-set firewall name services-local enable-default-log
+# set firewall name services-local enable-default-log
 set firewall name services-local rule 1 action 'accept'
 set firewall name services-local rule 1 description 'Rule: accept_ntp'
 set firewall name services-local rule 1 destination port 'ntp'
@@ -378,12 +382,12 @@ set firewall name services-servers rule 1 protocol 'icmp'
 # From SERVICES to TRUSTED
 set firewall name services-trusted default-action 'drop'
 set firewall name services-trusted description 'From SERVICES to TRUSTED'
-set firewall name services-trusted enable-default-log
+# set firewall name services-trusted enable-default-log
 
 # From SERVICES to VIDEO
 set firewall name services-video default-action 'drop'
 set firewall name services-video description 'From SERVICES to VIDEO'
-set firewall name services-video enable-default-log
+# set firewall name services-video enable-default-log
 
 # From SERVICES to WAN
 set firewall name services-wan default-action 'accept'
@@ -392,7 +396,7 @@ set firewall name services-wan description 'From SERVICES to WAN'
 # From TRUSTED to GUEST
 set firewall name trusted-guest default-action 'drop'
 set firewall name trusted-guest description 'From TRUSTED to GUEST'
-set firewall name trusted-guest enable-default-log
+# set firewall name trusted-guest enable-default-log
 
 # From TRUSTED to IOT
 set firewall name trusted-iot default-action 'accept'
@@ -412,7 +416,7 @@ set firewall name trusted-lan rule 1 protocol 'tcp'
 # From TRUSTED to LOCAL
 set firewall name trusted-local default-action 'drop'
 set firewall name trusted-local description 'From TRUSTED to LOCAL'
-set firewall name trusted-local enable-default-log
+# set firewall name trusted-local enable-default-log
 set firewall name trusted-local rule 1 action 'accept'
 set firewall name trusted-local rule 1 description 'Rule: accept_icmp'
 set firewall name trusted-local rule 1 protocol 'icmp'
@@ -471,22 +475,22 @@ set firewall name trusted-wan description 'From TRUSTED to WAN'
 # From VIDEO to GUEST
 set firewall name video-guest default-action 'drop'
 set firewall name video-guest description 'From VIDEO to GUEST'
-set firewall name video-guest enable-default-log
+# set firewall name video-guest enable-default-log
 
 # From VIDEO to IOT
 set firewall name video-iot default-action 'drop'
 set firewall name video-iot description 'From VIDEO to IOT'
-set firewall name video-iot enable-default-log
+# set firewall name video-iot enable-default-log
 
 # From VIDEO to LAN
 set firewall name video-lan default-action 'drop'
 set firewall name video-lan description 'From VIDEO to LAN'
-set firewall name video-lan enable-default-log
+# set firewall name video-lan enable-default-log
 
 # From VIDEO to LOCAL
 set firewall name video-local default-action 'drop'
 set firewall name video-local description 'From VIDEO to LOCAL'
-set firewall name video-local enable-default-log
+# set firewall name video-local enable-default-log
 set firewall name video-local rule 1 action 'accept'
 set firewall name video-local rule 1 description 'Rule: accept_ntp'
 set firewall name video-local rule 1 destination port 'ntp'
@@ -500,7 +504,7 @@ set firewall name video-local rule 2 source port '67,68'
 # From VIDEO to SERVERS
 set firewall name video-servers default-action 'drop'
 set firewall name video-servers description 'From VIDEO to SERVERS'
-set firewall name video-servers enable-default-log
+# set firewall name video-servers enable-default-log
 
 # From VIDEO to SERVICES
 set firewall name video-services default-action 'accept'
@@ -513,7 +517,7 @@ set firewall name video-services rule 1 protocol 'tcp_udp'
 # From VIDEO to TRUSTED
 set firewall name video-trusted default-action 'drop'
 set firewall name video-trusted description 'From VIDEO to TRUSTED'
-set firewall name video-trusted enable-default-log
+# set firewall name video-trusted enable-default-log
 
 # From VIDEO to WAN
 set firewall name video-wan default-action 'drop'
@@ -522,22 +526,22 @@ set firewall name video-wan description 'From VIDEO to WAN'
 # From WAN to GUEST
 set firewall name wan-guest default-action 'drop'
 set firewall name wan-guest description 'From WAN to GUEST'
-set firewall name wan-guest enable-default-log
+# set firewall name wan-guest enable-default-log
 
 # From WAN to IOT
 set firewall name wan-iot default-action 'drop'
 set firewall name wan-iot description 'From WAN to IOT'
-set firewall name wan-iot enable-default-log
+# set firewall name wan-iot enable-default-log
 
 # From WAN to LAN
 set firewall name wan-lan default-action 'drop'
 set firewall name wan-lan description 'From WAN to LAN'
-set firewall name wan-lan enable-default-log
+# set firewall name wan-lan enable-default-log
 
 # From WAN to LOCAL
 set firewall name wan-local default-action 'drop'
 set firewall name wan-local description 'From WAN to LOCAL'
-set firewall name wan-local enable-default-log
+# set firewall name wan-local enable-default-log
 set firewall name wan-local rule 1 action 'accept'
 set firewall name wan-local rule 1 description 'Rule: accept_wireguard'
 set firewall name wan-local rule 1 destination port '51820'
@@ -546,7 +550,7 @@ set firewall name wan-local rule 1 protocol 'udp'
 # From WAN to SERVERS
 set firewall name wan-servers default-action 'drop'
 set firewall name wan-servers description 'From WAN to SERVERS'
-set firewall name wan-servers enable-default-log
+# set firewall name wan-servers enable-default-log
 set firewall name wan-servers rule 1 action 'accept'
 set firewall name wan-servers rule 1 description 'Rule: accept_ingress_from_cloudflare'
 set firewall name wan-servers rule 1 destination group address-group 'k8s_ingress'
@@ -557,14 +561,14 @@ set firewall name wan-servers rule 1 source group network-group 'cloudflare-ipv4
 # From WAN to SERVICES
 set firewall name wan-services default-action 'drop'
 set firewall name wan-services description 'From WAN to SERVICES'
-set firewall name wan-services enable-default-log
+# set firewall name wan-services enable-default-log
 
 # From WAN to TRUSTED
 set firewall name wan-trusted default-action 'drop'
 set firewall name wan-trusted description 'From WAN to TRUSTED'
-set firewall name wan-trusted enable-default-log
+# set firewall name wan-trusted enable-default-log
 
 # From WAN to VIDEO
 set firewall name wan-video default-action 'drop'
 set firewall name wan-video description 'From WAN to VIDEO'
-set firewall name wan-video enable-default-log
+# set firewall name wan-video enable-default-log
