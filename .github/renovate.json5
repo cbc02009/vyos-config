@@ -20,5 +20,19 @@
       "datasourceTemplate": "docker"
     },
   ],
-  "packageRules": []
+  "packageRules": [
+    {
+      description: "1Password Connect images",
+      groupName: "1password-connect",
+      matchPackageNames: [
+        "ghcr.io/cbc02009/onepassword-sync",
+        "ghcr.io/cbc02009/onepassword-connect",
+      ],
+      matchDatasources: ["docker"],
+      "group": {
+        "commitMessageTopic": "{{{groupName}}} group"
+      },
+      separateMinorPatch: true,
+    },
+  ]
 }
