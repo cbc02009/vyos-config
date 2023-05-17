@@ -40,7 +40,7 @@ minio                      IN  A  10.0.2.97
 postgres                   IN  A  10.0.2.94
 talos                      IN  A  10.0.2.93
 
-; Services
+; Containers
 cluster                    IN  A  10.5.0.2
 unifi                      IN  A  10.5.0.10
 
