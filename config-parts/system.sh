@@ -16,8 +16,9 @@ set system name-server '1.1.1.1'
 
 set system sysctl parameter kernel.pty.max value '24000'
 
-set system syslog host ${LB_VECTOR} facility kern level 'warning'
-set system syslog host ${LB_VECTOR} facility kern protocol 'tcp'
+set system syslog host ${LB_VECTOR} facility all level 'info'
+set system syslog host ${LB_VECTOR} format octet-counted
+set system syslog host ${LB_VECTOR} protocol 'tcp'
 set system syslog host ${LB_VECTOR} port '6001'
 
 set system option performance throughput

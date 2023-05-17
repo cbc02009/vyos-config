@@ -23,7 +23,7 @@ alias podman="sudo podman"
 END
 
 # Disable EEE on network interfaces as a workaround to i225/i226 issues
-while read -r interface
-do
-  sudo ethtool --set-eee "${interface}" eee off
-done < <(ls -l /sys/class/net/*/device/driver/module | cut -d/ -f5)
+# while read -r interface
+# do
+#   sudo ethtool --set-eee "${interface}" eee off
+# done < <(ls -l /sys/class/net/*/device/driver/module | cut -d/ -f5)

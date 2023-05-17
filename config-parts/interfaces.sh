@@ -4,6 +4,10 @@
 set interfaces ethernet eth0 hw-id '9c:7b:ef:b7:95:f3'
 set interfaces ethernet eth0 description 'WAN'
 set interfaces ethernet eth0 address 'dhcp'
+set interface ethernet eth0 offload gro
+set interface ethernet eth0 offload gso
+set interface ethernet eth0 offload sg
+set interface ethernet eth0 offload tso
 
 # ETH1 IOT/VIDEO
 set interfaces ethernet eth1 hw-id '1c:fd:08:74:1b:0b'
@@ -11,6 +15,10 @@ set interfaces ethernet eth1 vif 40 address '10.0.3.1/24'
 set interfaces ethernet eth1 vif 40 description 'IOT'
 set interfaces ethernet eth1 vif 50 address '10.0.4.1/24'
 set interfaces ethernet eth1 vif 50 description 'VIDEO'
+set interface ethernet eth1 offload gro
+set interface ethernet eth1 offload gso
+set interface ethernet eth1 offload sg
+set interface ethernet eth1 offload tso
 
 
 # ETH2 LAN/GUEST
@@ -19,13 +27,25 @@ set interfaces ethernet eth2 address '10.0.0.1/24'
 set interfaces ethernet eth2 description 'LAN'
 set interfaces ethernet eth2 vif 30 address '192.168.2.1/24'
 set interfaces ethernet eth2 vif 30 description 'GUEST'
+set interface ethernet eth2 offload gro
+set interface ethernet eth2 offload gso
+set interface ethernet eth2 offload sg
+set interface ethernet eth2 offload tso
 
 
 # ETH3 BOND
 set interfaces ethernet eth3 hw-id 'e4:1d:2d:22:a9:40'
+set interface ethernet eth3 offload gro
+set interface ethernet eth3 offload gso
+set interface ethernet eth3 offload sg
+set interface ethernet eth3 offload tso
 
 # ETH4 BOND
 set interfaces ethernet eth4 hw-id 'e4:1d:2d:22:a9:41'
+set interface ethernet eth4 offload gro
+set interface ethernet eth4 offload gso
+set interface ethernet eth4 offload sg
+set interface ethernet eth4 offload tso
 
 # BOND0
 set interfaces bonding bond0

@@ -1,7 +1,12 @@
 #!/bin/vbash
 
-set service dhcp-server hostfile-update
-set service dhcp-server host-decl-name
+set service dhcp-server dynamic-dns-update
+set service dhcp-server global-parameters "key ddnsupdate { algorithm hmac-md5; secret ${SECRET_DHCP_DDNS_UPDATE}; };"
+set service dhcp-server global-parameters "zone ctec.run. { primary 10.5.0.3; key ddnsupdate; }"
+set service dhcp-server global-parameters "ddns-domainname &quot;ctec.run.&quot;;"
+set service dhcp-server global-parameters "ddns-rev-domainname &quot;in-addr.arpa.&quot;;"
+set service dhcp-server global-parameters "zone in-addr.arpa. { primary 10.5.0.3; key ddnsupdate; }"
+set service dhcp-server global-parameters "zone 0.10.in-addr.arpa. { primary 10.5.0.3; key ddnsupdate; }"
 
 # Guest VLAN
 set service dhcp-server shared-network-name GUEST authoritative
@@ -57,6 +62,8 @@ set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mappin
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping CRS317 mac-address '18:FD:74:12:79:55'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping CSS326 ip-address '10.0.0.3'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping CSS326 mac-address 'C4:AD:34:90:62:3F'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping workbench-switch ip-address '10.0.0.5'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping workbench-switch mac-address '94:18:65:66:19:a9'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lr ip-address '10.0.0.40'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lr mac-address 'AC:8B:A9:24:AE:95'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lite-1 ip-address '10.0.0.41'
