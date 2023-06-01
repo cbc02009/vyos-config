@@ -121,10 +121,10 @@ set container name onepassword-sync volume data destination '/home/opuser/.op/da
 set container name onepassword-sync volume data mode 'rw'
 
 # smtp-relay
-set container name smtp-relay environment SMTP_DOMAIN value 'ctec.run'
+set container name smtp-relay environment SMTP_DOMAIN value 'kokoro.wtf'
 set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_PASSWORD}
-set container name smtp-relay environment SMTP_PORT value '587'
-set container name smtp-relay environment SMTP_SERVER value 'smtp.gmail.com'
+set container name smtp-relay environment SMTP_PORT value '465'
+set container name smtp-relay environment SMTP_SERVER value ' smtp.fastmail.com'
 set container name smtp-relay environment SMTP_USERNAME value ${SECRET_SMTP_USERNAME}
 set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.6.3'
 set container name smtp-relay memory '0'
@@ -147,3 +147,15 @@ set container name traefik volume traefik-config source '/config/containers/trae
 set container name traefik volume traefik-data destination '/data'
 set container name traefik volume traefik-data mode 'rw'
 set container name traefik volume traefik-data source '/tmp/traefik/data'
+
+# Flexo
+set container name flexo image 'ghcr.io/cbc02009/flexo:1.6.9'
+set container name flexo memory '0'
+set container name flexo network containers address '10.5.0.9'
+set container name flexo shared-memory '0'
+set container name flexo volume flexo-config destination '/etc/flexo/flexo.toml'
+set container name flexo volume flexo-config mode 'ro'
+set container name flexo volume flexo-config source '/config/containers/flexo/config/flexo.toml'
+set container name flexo volume flexo-data destination '/var/cache/flexo'
+set container name flexo volume flexo-data mode 'rw'
+set container name flexo volume flexo-data source '/config/containers/flexo/data'

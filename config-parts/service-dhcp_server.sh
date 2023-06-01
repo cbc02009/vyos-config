@@ -91,6 +91,8 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-ma
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura mac-address 'E4:1D:2D:DD:7C:60'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu ip-address '10.0.2.10'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu mac-address 'E4:1D:2D:12:4B:60'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri ip-address '10.0.2.15'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri mac-address 'e4:1d:4b:2d:a9:8a'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya ip-address '10.0.2.11'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya mac-address 'FC:3F:DB:0E:7A:79'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Garage ip-address '10.0.2.99'
