@@ -137,7 +137,7 @@ set container name smtp-relay volume smtp-relay-config source '/config/container
 # Traefik
 set container name traefik environment CF_API_EMAIL value "cbc02009@kokoro.wtf"
 set container name traefik environment CF_API_KEY value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-set container name traefik image 'docker.io/library/traefik:v2.10.1'
+set container name traefik image 'docker.io/library/traefik:v2.10.3'
 set container name traefik memory '0'
 set container name traefik network containers address '10.5.0.8'
 set container name traefik shared-memory '0'
