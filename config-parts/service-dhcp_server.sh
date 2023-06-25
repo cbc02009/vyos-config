@@ -72,6 +72,10 @@ set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mappin
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lite-2 mac-address '60:22:32:40:D6:8C'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping USP-PDU-Pro ip-address '10.0.0.43'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping USP-PDU-Pro mac-address 'E4:38:83:1C:90:2D'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-1 ip-address '10.0.0.50'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-1 mac-address 'dc:a6:32:c8:36:33'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-2 ip-address '10.0.0.51'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-2 mac-address 'e4:5f:01:41:3f:b6'
 
 # Servers VLAN
 set service dhcp-server shared-network-name SERVERS authoritative
@@ -95,8 +99,6 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-ma
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri mac-address 'e4:1d:4b:2d:a9:8a'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya ip-address '10.0.2.11'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya mac-address 'FC:3F:DB:0E:7A:79'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Garage ip-address '10.0.2.99'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Garage mac-address '00:16:3E:59:EC:97'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder ip-address '10.0.2.95'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder mac-address '00:16:3E:90:AA:59'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio ip-address '10.0.2.97'
@@ -126,6 +128,10 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-ma
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Sulleta mac-address '18:C0:4D:6A:18:E3'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Misaka ip-address '10.0.1.60'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Misaka mac-address '98:3b:8f:ce:2e:85'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Himari ip-address '10.0.1.120'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Himari mac-address 'e4:5f:01:41:46:82'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro ip-address '10.0.1.119'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro mac-address 'e4:5f:01:51:e3:ae'
 
 # Video VLAN
 set service dhcp-server shared-network-name VIDEO authoritative

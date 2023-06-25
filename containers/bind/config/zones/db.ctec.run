@@ -21,6 +21,8 @@ gateway                    IN  A  10.0.0.1
 ; Trusted
 shinobu                    IN  A 10.0.1.5
 yuzu                       IN  A 10.0.1.50
+Poro                       IN  A 10.0.1.119
+himari                     IN  A 10.0.1.120
 
 ; Servers
 shana                      IN  A  10.0.2.4
@@ -32,6 +34,7 @@ ram                        IN  A  10.0.2.14
 miri                       IN  A  10.0.2.15
 
 ; IOT
+printer                    IN  A  10.0.3.51
 
 ; Video
 
@@ -44,7 +47,7 @@ talos                      IN  A  10.0.2.93
 ; Containers
 cluster                    IN  A  10.5.0.2
 unifi                      IN  A  10.5.0.10
-unifi-test                 IN  A  10.5.0.10
+unifi-test                 IN  A  10.5.0.8
 
 ; CNAME records
 nas                        IN  CNAME  shana.ctec.run.

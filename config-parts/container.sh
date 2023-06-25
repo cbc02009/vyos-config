@@ -63,15 +63,15 @@ set container name node-exporter memory '0'
 set container name node-exporter allow-host-networks
 set container name node-exporter restart 'on-failure'
 set container name node-exporter shared-memory '0'
+set container name node-exporter volume procfs source '/proc'
 set container name node-exporter volume procfs destination '/host/proc'
 set container name node-exporter volume procfs mode 'ro'
-set container name node-exporter volume procfs source '/proc'
+set container name node-exporter volume rootfs source '/'
 set container name node-exporter volume rootfs destination '/host/rootfs'
 set container name node-exporter volume rootfs mode 'ro'
-set container name node-exporter volume rootfs source '/'
+set container name node-exporter volume sysfs source '/sys'
 set container name node-exporter volume sysfs destination '/host/sys'
 set container name node-exporter volume sysfs mode 'ro'
-set container name node-exporter volume sysfs source '/sys'
 
 # speedtest-exporter
 set container name speedtest-exporter image 'ghcr.io/miguelndecarvalho/speedtest-exporter:v3.5.3'
@@ -124,7 +124,7 @@ set container name onepassword-sync volume data mode 'rw'
 set container name smtp-relay environment SMTP_DOMAIN value 'kokoro.wtf'
 set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_PASSWORD}
 set container name smtp-relay environment SMTP_PORT value '465'
-set container name smtp-relay environment SMTP_SERVER value ' smtp.fastmail.com'
+set container name smtp-relay environment SMTP_SERVER value 'smtp.fastmail.com'
 set container name smtp-relay environment SMTP_USERNAME value ${SECRET_SMTP_USERNAME}
 set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.7.0'
 set container name smtp-relay memory '0'
