@@ -108,7 +108,7 @@ set container name onepassword-connect volume data destination '/home/opuser/.op
 set container name onepassword-connect volume data mode 'rw'
 
 # onepassword-sync
-set container name onepassword-sync image 'ghcr.io/cbc02009/onepassword-sync:1.7.0'
+set container name onepassword-sync image 'ghcr.io/cbc02009/onepassword-sync:1.7.1'
 set container name onepassword-sync environment TZ value ${TZ}
 set container name onepassword-sync memory '0'
 set container name onepassword-sync shared-memory '0'
