@@ -95,7 +95,7 @@ set container name unifi volume data destination '/unifi'
 set container name unifi volume data source '/config/containers/unifi'
 
 # onepassword-connect
-set container name onepassword-connect image 'ghcr.io/cbc02009/onepassword-connect-api:1.7.0'
+set container name onepassword-connect image 'ghcr.io/cbc02009/onepassword-connect-api:1.7.1'
 set container name onepassword-connect environment TZ value ${TZ}
 set container name onepassword-connect memory '0'
 set container name onepassword-connect network containers address '10.5.0.5'
