@@ -128,15 +128,16 @@ set container name smtp-relay environment SMTP_SERVER value 'smtp.fastmail.com'
 set container name smtp-relay environment SMTP_USERNAME value ${SECRET_SMTP_USERNAME}
 set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.7.0'
 set container name smtp-relay memory '0'
-set container name smtp-relay network containers address '10.5.0.7'
+set container name smtp-relay network containers address '10.5.0.11'
 set container name smtp-relay shared-memory '0'
 set container name smtp-relay volume smtp-relay-config destination '/data/maddy.conf'
 set container name smtp-relay volume smtp-relay-config mode 'ro'
 set container name smtp-relay volume smtp-relay-config source '/config/containers/smtp-relay/config/maddy.conf'
 
 # Traefik
-set container name traefik environment CF_API_EMAIL value "cbc02009@kokoro.wtf"
-set container name traefik environment CF_API_KEY value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
+set container name traefik environment CF_API_EMAIL value "postmaster@kokoro.wtf"
+set container name traefik environment CLOUDFLARE_ZONE_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
+set container name traefik environment CLOUDFLARE_DNS_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
 set container name traefik image 'docker.io/library/traefik:v2.10.3'
 set container name traefik memory '0'
 set container name traefik network containers address '10.5.0.8'
@@ -159,3 +160,55 @@ set container name flexo volume flexo-config source '/config/containers/flexo/co
 set container name flexo volume flexo-data destination '/var/cache/flexo'
 set container name flexo volume flexo-data mode 'rw'
 set container name flexo volume flexo-data source '/config/containers/flexo/data'
+
+# wildcard certificate
+set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.1.0'
+set container name lego-auto memory '0'
+set container name lego-auto allow-host-networks
+set container name lego-auto shared-memory '0'
+set container name lego-auto restart 'on-failure'
+set container name lego-auto environment TZ value ${TZ}
+set container name lego-auto environment LA_DATADIR value '/config'
+set container name lego-auto environment LA_CACHEDIR value '/config/.cache'
+set container name lego-auto environment LA_EMAIL value 'postmaster@kokoro.wtf'
+set container name lego-auto environment LA_PROVIDER value 'cloudflare'
+set container name lego-auto environment LA_DOMAINS value '*.kokoro.wtf'
+set container name lego-auto environment CF_DNS_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
+set container name lego-auto volume datadir source '/config/secrets/certs/_.kokoro.wtf'
+set container name lego-auto volume datadir destination '/config'
+set container name lego-auto volume datadir mode 'rw'
+
+# pihole/unbound
+set container name pihole image 'ghcr.io/szinn/pihole-unbound:2023.05.2'
+set container name pihole memory '0'
+set container name pihole network containers address '10.5.0.7'
+set container name pihole shared-memory '0'
+set container name pihole restart 'on-failure'
+set container name pihole environment TZ value ${TZ}
+set container name pihole environment HOSTNAME value 'pihole'
+set container name pihole environment PIHOLE_DOMAIN value 'kokoro.wtf'
+set container name pihole environment WEBPASSWORD value "${SECRET_PIHOLE_WEBPASSWORD}"
+set container name pihole environment WEBTHEME value 'default-auto'
+set container name pihole environment DNSSEC value 'true'
+set container name pihole environment DNS_BOGUS_PRIV value 'true'
+set container name pihole environment DNS_FQDN_REQUIRED value 'true'
+set container name pihole environment DNSMASQ_LISTENING value 'single'
+set container name pihole environment FTLCONF_LOCAL_IPV4 value '10.5.0.7'
+set container name pihole environment FTLCONF_BLOCK_ICLOUD_PR value 'false'
+set container name pihole environment REV_SERVER value 'true'
+set container name pihole environment REV_SERVER_DOMAIN value 'ctec.run'
+set container name pihole environment REV_SERVER_TARGET value '10.5.0.3'
+set container name pihole environment REV_SERVER_CIDR value '10.0.0.0/8'
+set container name pihole environment PIHOLE_DNS_ value '127.0.0.1#5335'
+set container name pihole volume pihole source '/config/containers/pihole/pihole'
+set container name pihole volume pihole destination '/etc/pihole'
+set container name pihole volume pihole mode 'rw'
+set container name pihole volume dnsmasq source '/config/containers/pihole/dnsmasq'
+set container name pihole volume dnsmasq destination '/etc/dnsmasq.d'
+set container name pihole volume dnsmasq mode 'rw'
+set container name pihole volume pihole-ssl source '/config/containers/pihole/10-pihole-ssl.conf'
+set container name pihole volume pihole-ssl destination '/etc/lighttpd/conf-enabled/10-pihole-ssl.conf'
+set container name pihole volume pihole-ssl mode 'rw'
+set container name pihole volume certificate-pem source '/config/secrets/certs/_.kokoro.wtf/combined.pem'
+set container name pihole volume certificate-pem destination '/etc/lighttpd/certs/pihole.pem'
+set container name pihole volume certificate-pem mode 'ro'

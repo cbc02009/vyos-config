@@ -23,6 +23,7 @@ shinobu                    IN  A 10.0.1.5
 yuzu                       IN  A 10.0.1.50
 Poro                       IN  A 10.0.1.119
 himari                     IN  A 10.0.1.120
+petra                      IN  A 10.0.1.121
 
 ; Servers
 shana                      IN  A  10.0.2.4
@@ -39,10 +40,11 @@ printer                    IN  A  10.0.3.51
 ; Video
 
 ; LXD
-builder                    IN  A  10.0.2.95
-minio                      IN  A  10.0.2.97
-postgres                   IN  A  10.0.2.94
 talos                      IN  A  10.0.2.93
+postgres                   IN  A  10.0.2.94
+builder                    IN  A  10.0.2.95
+kiki                       IN  A  10.0.2.96
+minio                      IN  A  10.0.2.97
 
 ; Containers
 cluster                    IN  A  10.5.0.2

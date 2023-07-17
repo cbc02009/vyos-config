@@ -54,12 +54,36 @@ http:
     dashboard:
       rule: Host(`traefik.kokoro.wtf`)
       service: api@internal
-  #   unifi:
-  #     rule: Host(`unifi-test.ctec.run`)
-  #     entryPoints: ["websecure"]
-  #     service: unifi
-  # services:
-  #   unifi:
-  #     loadBalancer:
-  #       servers:
-  #         - url: https://10.5.0.10
+    unifi:
+      rule: Host(`unifi.kokoro.wtf`)
+      entryPoints: ["websecure"]
+      service: unifi
+    himari:
+      rule: Host(`himari.kokoro.wtf`)
+      entryPoints: ["websecure"]
+      service: himari
+    himari:
+      rule: Host(`kiki.kokoro.wtf`)
+      entryPoints: ["websecure"]
+      service: kiki
+    # minio:
+    #   rule: Host(`minio.kokoro.wtf`)
+    #   service: minio_ui
+    #   entryPoints: ["websecure"]
+  services:
+    himari:
+      loadBalancer:
+        servers:
+          - url: http://himari.ctec.run
+      # minio_ui:
+      #   loadBalancer:
+      #     servers:
+      #       - url: http://minio.ctec.run:9000
+    unifi:
+      loadBalancer:
+        servers:
+          - url: https://10.5.0.10:8443
+    kiki:
+      loadBalancer:
+        servers:
+          - url: https://kiki.ctec.run:8080

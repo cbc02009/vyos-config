@@ -7,9 +7,10 @@
 !/bind/
 !/coredns/
 !/dnsdist/
+!/flexo/
 !/haproxy/
+!/pihole/
+!/smtp-relay/
+!/traefik/
 !/unifi/
 !/vector-agent/
-!/smtp-relay/
-!/flexo/
-!/traefik/

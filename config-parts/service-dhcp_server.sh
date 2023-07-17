@@ -63,7 +63,7 @@ set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mappin
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping CSS326 ip-address '10.0.0.3'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping CSS326 mac-address 'C4:AD:34:90:62:3F'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping workbench-switch ip-address '10.0.0.5'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping workbench-switch mac-address '94:18:65:66:19:a9'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping workbench-switch mac-address '18:fd:74:f5:b3:d0'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lr ip-address '10.0.0.40'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lr mac-address 'AC:8B:A9:24:AE:95'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lite-1 ip-address '10.0.0.41'
@@ -99,14 +99,16 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-ma
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri mac-address 'e4:1d:4b:2d:a9:8a'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya ip-address '10.0.2.11'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya mac-address 'FC:3F:DB:0E:7A:79'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder ip-address '10.0.2.95'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder mac-address '00:16:3E:90:AA:59'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio ip-address '10.0.2.97'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio mac-address '00:16:3E:E3:07:08'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos ip-address '10.0.2.93'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos mac-address '00:16:3E:FB:30:AA'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres ip-address '10.0.2.94'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres mac-address '00:16:3e:50:ee:4f'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder ip-address '10.0.2.95'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder mac-address '00:16:3E:90:AA:59'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Kiki ip-address '10.0.2.96'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Kiki mac-address '00:16:3e:20:8a:a1'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio ip-address '10.0.2.97'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio mac-address '00:16:3E:E3:07:08'
 
 # Trusted VLAN
 set service dhcp-server shared-network-name TRUSTED authoritative
@@ -132,6 +134,8 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-ma
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Himari mac-address 'e4:5f:01:41:46:82'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro ip-address '10.0.1.119'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro mac-address 'e4:5f:01:51:e3:ae'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Petra ip-address '10.0.1.121'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Petra mac-address 'dc:a6:32:54:25:c4'
 
 # Video VLAN
 set service dhcp-server shared-network-name VIDEO authoritative
