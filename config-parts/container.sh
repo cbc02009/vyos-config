@@ -160,6 +160,8 @@ set container name flexo volume flexo-config source '/config/containers/flexo/co
 set container name flexo volume flexo-data destination '/var/cache/flexo'
 set container name flexo volume flexo-data mode 'rw'
 set container name flexo volume flexo-data source '/config/containers/flexo/data'
+set container name flexo environment FLEXO_MIRRORS_AUTO_ALLOWED_COUNTRIES value 'US'
+set container name flexo environment FLEXO_MIRROR_SELECTION_METHOD value 'auto'
 
 # wildcard certificate
 set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.1.0'
