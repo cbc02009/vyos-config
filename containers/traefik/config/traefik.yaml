@@ -62,7 +62,7 @@ http:
       rule: Host(`himari.kokoro.wtf`)
       entryPoints: ["websecure"]
       service: himari
-    himari:
+    kiki:
       rule: Host(`kiki.kokoro.wtf`)
       entryPoints: ["websecure"]
       service: kiki

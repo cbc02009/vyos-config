@@ -94,32 +94,6 @@ set container name unifi shared-memory '0'
 set container name unifi volume data destination '/unifi'
 set container name unifi volume data source '/config/containers/unifi'
 
-# onepassword-connect
-set container name onepassword-connect image 'ghcr.io/cbc02009/onepassword-connect-api:1.7.1'
-set container name onepassword-connect environment TZ value ${TZ}
-set container name onepassword-connect memory '0'
-set container name onepassword-connect network containers address '10.5.0.5'
-set container name onepassword-connect shared-memory '0'
-set container name onepassword-connect volume credentials source '/config/secrets/1password-credentials.json'
-set container name onepassword-connect volume credentials destination '/home/opuser/.op/1password-credentials.json'
-set container name onepassword-connect volume credentials mode 'ro'
-set container name onepassword-connect volume data source '/tmp/onepassword/data'
-set container name onepassword-connect volume data destination '/home/opuser/.op/data'
-set container name onepassword-connect volume data mode 'rw'
-
-# onepassword-sync
-set container name onepassword-sync image 'ghcr.io/cbc02009/onepassword-sync:1.7.1'
-set container name onepassword-sync environment TZ value ${TZ}
-set container name onepassword-sync memory '0'
-set container name onepassword-sync shared-memory '0'
-set container name onepassword-sync network containers address '10.5.0.6'
-set container name onepassword-sync volume credentials source '/config/secrets/1password-credentials.json'
-set container name onepassword-sync volume credentials destination '/home/opuser/.op/1password-credentials.json'
-set container name onepassword-sync volume credentials mode 'ro'
-set container name onepassword-sync volume data source '/tmp/onepassword/data'
-set container name onepassword-sync volume data destination '/home/opuser/.op/data'
-set container name onepassword-sync volume data mode 'rw'
-
 # smtp-relay
 set container name smtp-relay environment SMTP_DOMAIN value 'kokoro.wtf'
 set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_PASSWORD}
@@ -148,20 +122,6 @@ set container name traefik volume traefik-config source '/config/containers/trae
 set container name traefik volume traefik-data destination '/data'
 set container name traefik volume traefik-data mode 'rw'
 set container name traefik volume traefik-data source '/tmp/traefik/data'
-
-# Flexo
-set container name flexo image 'ghcr.io/cbc02009/flexo:1.6.9'
-set container name flexo memory '0'
-set container name flexo network containers address '10.5.0.9'
-set container name flexo shared-memory '0'
-set container name flexo volume flexo-config destination '/etc/flexo/flexo.toml'
-set container name flexo volume flexo-config mode 'ro'
-set container name flexo volume flexo-config source '/config/containers/flexo/config/flexo.toml'
-set container name flexo volume flexo-data destination '/var/cache/flexo'
-set container name flexo volume flexo-data mode 'rw'
-set container name flexo volume flexo-data source '/config/containers/flexo/data'
-set container name flexo environment FLEXO_MIRRORS_AUTO_ALLOWED_COUNTRIES value 'US'
-set container name flexo environment FLEXO_MIRROR_SELECTION_METHOD value 'auto'
 
 # wildcard certificate
 set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.1.0'
