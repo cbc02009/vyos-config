@@ -24,7 +24,7 @@ set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 default-route
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 domain-name 'ctec.run'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 lease '86400'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 name-server '10.5.0.4'
-set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 range 0 start '10.0.3.100'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 range 0 start '10.0.3.200'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 range 0 stop '10.0.3.254'
 
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping hp823c1f ip-address '10.0.3.51'
@@ -47,6 +47,8 @@ set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mappin
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Upstairs mac-address '44:61:32:9d:f4:31'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom ip-address '10.0.3.62'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom mac-address '44:61:32:fc:3b:5d'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Prusa ip-address '10.0.3.110'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Prusa mac-address '08:3a:8d:fa:a7:6b'
 
 # LAN
 set service dhcp-server shared-network-name LAN authoritative
@@ -134,9 +136,6 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-ma
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Himari mac-address 'e4:5f:01:41:46:82'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro ip-address '10.0.1.119'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro mac-address 'e4:5f:01:51:e3:ae'
-set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Petra ip-address '10.0.1.121'
-set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Petra mac-address 'dc:a6:32:54:25:c4'
-
 # Video VLAN
 set service dhcp-server shared-network-name VIDEO authoritative
 set service dhcp-server shared-network-name VIDEO ping-check

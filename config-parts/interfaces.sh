@@ -69,7 +69,8 @@ set interfaces wireguard wg01 port '51820'
 set interfaces wireguard wg01 private-key "${SECRET_WIREGUARD_PRIVATE_KEY}"
 set interfaces wireguard wg01 peer yuzu allowed-ips '10.0.11.2/32'
 set interfaces wireguard wg01 peer yuzu persistent-keepalive '15'
-set interfaces wireguard wg01 peer yuzu public-key 'h9eTcLnzlhcfWgSClI29QgEsNYHSrh60ZkP6FmjTFy8='
+set interfaces wireguard wg01 peer yuzu public-key 'MwgAdGZ7/scsL7NbP+6IOpzty0cMc3aDrm4YeHHexHo='
 set interfaces wireguard wg01 peer chronos allowed-ips '10.0.11.3/32'
 set interfaces wireguard wg01 peer chronos persistent-keepalive '15'
-set interfaces wireguard wg01 peer chronos public-key '608IT2YRPTCabLMGnpYfIWhgDnEpLV5IIpYi5J7m3As='
+set interfaces wireguard wg01 peer chronos public-key 'ky1gLcVE/eCBtoPbi3ZZHOgbqqoJ2xcJ4XjlXtQNmA4='
+

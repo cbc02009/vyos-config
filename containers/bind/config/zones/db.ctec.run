@@ -35,7 +35,7 @@ ram                        IN  A  10.0.2.14
 miri                       IN  A  10.0.2.15
 
 ; IOT
-printer                    IN  A  10.0.3.51
+prusa                      IN  A  10.0.3.110
 
 ; Video
 

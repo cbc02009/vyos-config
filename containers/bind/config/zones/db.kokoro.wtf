@@ -23,6 +23,7 @@ smtp-relay                 IN  A 10.5.0.11
 
 ; CNAME Records
 vpn                        IN  CNAME gateway.ctec.run.
+portal                     IN  CNAME gateway.ctec.run.
 
 ; Traefik Ingress
 unifi-network              IN  CNAME traefik.kokoro.wtf.
