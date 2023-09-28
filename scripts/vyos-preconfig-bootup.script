@@ -5,24 +5,13 @@
 
 # TODO: Remove if issues don't come back, turn back on if they do
 # Clean dangling container network files
-rm /var/lib/cni/networks/containers/10.5.*
+# rm /var/lib/cni/networks/containers/10.5.*
 
 # Fix for containers requiring a custom user/group id
 # and Vyos not preserving file perms on upgrade
-mkdir -p /tmp/onepassword/data
-chown -R 999:999 /tmp/onepassword
-#
 mkdir -p /tmp/bind/cache
 chown -R 104:104 /tmp/bind
 #
 mkdir -p /tmp/traefik/data
 touch /tmp/traefik/data/acme.json
 chmod 600 /tmp/traefik/data/acme.json
-
-# Mount USB Backup Drive
-backupdest=/media/usb-backup
-mkdir -p "$backupdest"
-
-# TODO
-# TODO
-mount.exfat-fuse -o rw,uid=vyos,gid=vyattacfg /dev/disk/by-id/usb-Kingston_DataTraveler_3.0_60A44C426697F210C9890060-0:0-part1 "$backupdest"

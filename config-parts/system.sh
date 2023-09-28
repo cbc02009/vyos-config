@@ -24,6 +24,6 @@ set system syslog host ${LB_VECTOR} port '6001'
 set system option performance throughput
 
 set system task-scheduler task backup-config crontab-spec '30 0 * * *'
-set system task-scheduler task backup-config executable path '/config/scripts/custom-config-backup.sh'
+set system task-scheduler task backup-config executable path '/config/scripts/task-config-backup-usb.sh'
 
 set system time-zone ${TZ}
