@@ -13,9 +13,10 @@
 !.Taskfile.yaml
 
 # VyOS config
-!scripts/
+!bootstrap/
 !config-parts/
 !containers/
+!scripts/
 
 
 # CI

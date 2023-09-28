@@ -47,8 +47,8 @@ set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mappin
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Upstairs mac-address '44:61:32:9d:f4:31'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom ip-address '10.0.3.62'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Thermostat-Main-Bedroom mac-address '44:61:32:fc:3b:5d'
-set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Prusa ip-address '10.0.3.110'
-set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping Prusa mac-address '08:3a:8d:fa:a7:6b'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping PrusaMK4 ip-address '10.0.3.110'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 static-mapping PrusaMK4 mac-address '10:9c:70:2e:58:dd'
 
 # LAN
 set service dhcp-server shared-network-name LAN authoritative
