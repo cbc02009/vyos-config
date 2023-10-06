@@ -124,7 +124,7 @@ set container name traefik volume traefik-data mode 'rw'
 set container name traefik volume traefik-data source '/tmp/traefik/data'
 
 # wildcard certificate
-set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.1.0'
+set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.2.0'
 set container name lego-auto memory '0'
 set container name lego-auto allow-host-networks
 set container name lego-auto shared-memory '0'
