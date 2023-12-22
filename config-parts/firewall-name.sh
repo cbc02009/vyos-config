@@ -308,7 +308,7 @@ set firewall name servers-iot rule 2 protocol 'tcp'
 set firewall name servers-iot rule 2 source group address-group 'k8s_nodes'
 
 # From SERVERS to LAN
-set firewall name servers-lan default-action 'drop'
+set firewall name servers-lan default-action 'accept'
 set firewall name servers-lan description 'From SERVERS to LAN'
 set firewall name servers-lan rule 1 action 'accept'
 set firewall name servers-lan rule 1 description 'Rule: accept_icmp'
@@ -557,6 +557,12 @@ set firewall name wan-local rule 1 protocol 'udp'
 # From WAN to SERVERS
 set firewall name wan-servers default-action 'drop'
 set firewall name wan-servers description 'From WAN to SERVERS'
+set firewall name wan-servers rule 1 action 'accept'
+set firewall name wan-servers rule 1 description 'Rule: accept_ingress_from_Plex'
+set firewall name wan-servers rule 1 destination address ${LB_PLEX}
+set firewall name wan-servers rule 1 destination port '32400'
+set firewall name wan-servers rule 1 protocol 'tcp_udp'
+set firewall name wan-servers rule 1 state new 'enable'
 
 # From WAN to CONTAINERS
 set firewall name wan-containers default-action 'drop'

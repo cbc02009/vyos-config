@@ -28,5 +28,3 @@ portal                     IN  CNAME gateway.ctec.run.
 ; Traefik Ingress
 unifi-network              IN  CNAME traefik.kokoro.wtf.
 unifi                      IN  CNAME traefik.kokoro.wtf.
-himari                     IN  CNAME traefik.kokoro.wtf.
-kiki                       IN  CNAME traefik.kokoro.wtf.

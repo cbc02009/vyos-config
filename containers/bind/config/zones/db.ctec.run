@@ -36,15 +36,13 @@ miri                       IN  A  10.0.2.15
 
 ; IOT
 prusa                      IN  A  10.0.3.110
+printer                    IN  A  10.0.3.51
 
 ; Video
 
 ; LXD
 talos                      IN  A  10.0.2.93
 postgres                   IN  A  10.0.2.94
-builder                    IN  A  10.0.2.95
-kiki                       IN  A  10.0.2.96
-minio                      IN  A  10.0.2.97
 
 ; Containers
 cluster                    IN  A  10.5.0.2
