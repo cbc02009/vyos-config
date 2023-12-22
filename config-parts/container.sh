@@ -103,7 +103,7 @@ set container name PowerDNS-Admin environment BIND_ADDRESS value '0.0.0.0'
 set container name PowerDNS-Admin environment PORT value 80
 set container name PowerDNS-Admin environment SECRET_KEY value ${PDNS_ADMIN_KEY}
 set container name PowerDNS-Admin environment SQLALCHEMY_DATABASE_URI value sqlite:////database/powerdns-admin.db
-set container name PowerDNS-Admin image 'docker.io/powerdnsadmin/pda-legacy:v0.3'
+set container name PowerDNS-Admin image 'docker.io/powerdnsadmin/pda-legacy:0.4'
 set container name PowerDNS-Admin network containers address '10.5.0.22'
 set container name PowerDNS-Admin volume config destination /data
 set container name PowerDNS-Admin volume config source /config/containers/powerdns/admin
