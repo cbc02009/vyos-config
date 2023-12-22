@@ -91,7 +91,7 @@ set container name PowerDNS-Authoritative cap-add 'net-bind-service'
 set container name PowerDNS-Authoritative command '--launch=gsqlite3 --local-address=0.0.0.0 --local-port=53 --webserver=yes --webserver-address=0.0.0.0 --webserver-port=8081'
 set container name PowerDNS-Authoritative environment PDNS_AUTH_API_KEY value ${PDNS_AUTH_API_KEY}
 set container name PowerDNS-Authoritative network containers address '10.5.0.20'
-set container name PowerDNS-Authoritative image 'docker.io/powerdns/pdns-auth-48:4.8.3'
+set container name PowerDNS-Authoritative image 'docker.io/powerdns/pdns-auth-48:4.8.4'
 set container name PowerDNS-Authoritative volume config destination '/var/lib/powerdns'
 set container name PowerDNS-Authoritative volume config source /config/containers/powerdns/authoritative
 set container name PowerDNS-Authoritative volume pdns destination /etc/powerdns/pdns.conf
