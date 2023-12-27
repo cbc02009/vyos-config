@@ -123,7 +123,7 @@ set container name unifi environment TZ value ${TZ}
 set container name unifi environment UNIFI_GID value '999'
 set container name unifi environment UNIFI_STDOUT value 'true'
 set container name unifi environment UNIFI_UID value '999'
-set container name unifi image 'ghcr.io/jacobalberty/unifi-docker:v7.5.176'
+set container name unifi image 'ghcr.io/jacobalberty/unifi-docker:v8.0.24'
 set container name unifi memory '0'
 set container name unifi network containers address '10.5.0.10'
 set container name unifi restart 'on-failure'
