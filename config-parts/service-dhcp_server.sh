@@ -103,14 +103,8 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-ma
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya mac-address 'FC:3F:DB:0E:7A:79'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos ip-address '10.0.2.93'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos mac-address '00:16:3E:FB:30:AA'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres ip-address '10.0.2.94'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Postgres mac-address '00:16:3e:50:ee:4f'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder ip-address '10.0.2.95'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Builder mac-address '00:16:3E:90:AA:59'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Kiki ip-address '10.0.2.96'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Kiki mac-address '00:16:3e:20:8a:a1'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio ip-address '10.0.2.97'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Minio mac-address '00:16:3E:E3:07:08'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping NUT-Server ip-address '10.0.2.3'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping NUT-Server mac-address '46:35:1a:fc:aa:44'
 
 # Trusted VLAN
 set service dhcp-server shared-network-name TRUSTED authoritative
@@ -136,6 +130,7 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-ma
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Himari mac-address 'e4:5f:01:41:46:82'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro ip-address '10.0.1.119'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Poro mac-address 'e4:5f:01:51:e3:ae'
+
 # Video VLAN
 set service dhcp-server shared-network-name VIDEO authoritative
 set service dhcp-server shared-network-name VIDEO ping-check

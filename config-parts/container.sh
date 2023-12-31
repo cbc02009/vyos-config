@@ -117,20 +117,6 @@ set container name speedtest-exporter allow-host-networks
 set container name speedtest-exporter restart 'on-failure'
 set container name speedtest-exporter shared-memory '0'
 
-# unifi
-set container name unifi environment RUNAS_UID0 value 'false'
-set container name unifi environment TZ value ${TZ}
-set container name unifi environment UNIFI_GID value '999'
-set container name unifi environment UNIFI_STDOUT value 'true'
-set container name unifi environment UNIFI_UID value '999'
-set container name unifi image 'ghcr.io/jacobalberty/unifi-docker:v8.0.24'
-set container name unifi memory '0'
-set container name unifi network containers address '10.5.0.10'
-set container name unifi restart 'on-failure'
-set container name unifi shared-memory '0'
-set container name unifi volume data destination '/unifi'
-set container name unifi volume data source '/config/containers/unifi'
-
 # smtp-relay
 set container name smtp-relay environment SMTP_DOMAIN value 'kokoro.wtf'
 set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_PASSWORD}
@@ -144,21 +130,6 @@ set container name smtp-relay shared-memory '0'
 set container name smtp-relay volume smtp-relay-config destination '/data/maddy.conf'
 set container name smtp-relay volume smtp-relay-config mode 'ro'
 set container name smtp-relay volume smtp-relay-config source '/config/containers/smtp-relay/config/maddy.conf'
-
-# Traefik
-set container name traefik environment CF_API_EMAIL value "postmaster@kokoro.wtf"
-set container name traefik environment CLOUDFLARE_ZONE_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-set container name traefik environment CLOUDFLARE_DNS_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-set container name traefik image 'docker.io/library/traefik:v2.10.7'
-set container name traefik memory '0'
-set container name traefik network containers address '10.5.0.8'
-set container name traefik shared-memory '0'
-set container name traefik volume traefik-config destination '/etc/traefik/traefik.yaml'
-set container name traefik volume traefik-config mode 'ro'
-set container name traefik volume traefik-config source '/config/containers/traefik/config/traefik.yaml'
-set container name traefik volume traefik-data destination '/data'
-set container name traefik volume traefik-data mode 'rw'
-set container name traefik volume traefik-data source '/tmp/traefik/data'
 
 # wildcard certificate
 set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.2.0'
