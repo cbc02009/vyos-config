@@ -1,9 +1,14 @@
 #!/bin/vbash
 
 # General configuration
-set firewall state-policy established action 'accept'
-set firewall state-policy invalid action 'drop'
-set firewall state-policy related action 'accept'
+set firewall global-options state-policy established action 'accept'
+set firewall global-options state-policy related action 'accept'
+set firewall global-options all-ping enable
+set firewall global-options broadcast-ping disable
+
+# Router (VyOS itself)
+set firewall group address-group router-addresses address 10.0.0.1
+set firewall group address-group router-addresses address 127.0.0.1
 
 # Address Groups
 set firewall group address-group k8s_api address '10.5.0.2'
