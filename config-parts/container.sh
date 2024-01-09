@@ -73,43 +73,6 @@ set container name node-exporter volume sysfs source '/sys'
 set container name node-exporter volume sysfs destination '/host/sys'
 set container name node-exporter volume sysfs mode 'ro'
 
-# Power DNS Recursor
-set container name PowerDNS-Recursor description 'PowerDNS Recursor Server'
-set container name PowerDNS-Recursor cap-add 'net-bind-service'
-set container name PowerDNS-Recursor command '--forward-zones-file=/config/forward-zones-file --local-address=0.0.0.0 --local-port=53 --etc-hosts-file=/etc/hosts --export-etc-hosts=yes --export-etc-hosts-search-suffix=kokoro.wtf --trace=no'
-set container name PowerDNS-Recursor network containers address '10.5.0.21'
-set container name PowerDNS-Recursor image 'docker.io/powerdns/pdns-recursor-48:4.8.5'
-set container name PowerDNS-Recursor volume config destination '/config'
-set container name PowerDNS-Recursor volume config source /config/containers/powerdns/recursor
-set container name PowerDNS-Recursor volume hosts destination /etc/hosts
-set container name PowerDNS-Recursor volume hosts mode ro
-set container name PowerDNS-Recursor volume hosts source /etc/hosts
-
-# Power DNS Authoritative
-set container name PowerDNS-Authoritative description 'PowerDNS Authoritative Server'
-set container name PowerDNS-Authoritative cap-add 'net-bind-service'
-set container name PowerDNS-Authoritative command '--launch=gsqlite3 --local-address=0.0.0.0 --local-port=53 --webserver=yes --webserver-address=0.0.0.0 --webserver-port=8081'
-set container name PowerDNS-Authoritative environment PDNS_AUTH_API_KEY value ${PDNS_AUTH_API_KEY}
-set container name PowerDNS-Authoritative network containers address '10.5.0.20'
-set container name PowerDNS-Authoritative image 'docker.io/powerdns/pdns-auth-48:4.8.4'
-set container name PowerDNS-Authoritative volume config destination '/var/lib/powerdns'
-set container name PowerDNS-Authoritative volume config source /config/containers/powerdns/authoritative
-set container name PowerDNS-Authoritative volume pdns destination /etc/powerdns/pdns.conf
-set container name PowerDNS-Authoritative volume pdns source /config/containers/powerdns/authoritative/pdns.conf
-
-# Power DNS Admin
-set container name PowerDNS-Admin description 'PowerDNS Admin Web UI'
-set container name PowerDNS-Admin environment BIND_ADDRESS value '0.0.0.0'
-set container name PowerDNS-Admin environment PORT value 80
-set container name PowerDNS-Admin environment SECRET_KEY value ${PDNS_ADMIN_KEY}
-set container name PowerDNS-Admin environment SQLALCHEMY_DATABASE_URI value sqlite:////database/powerdns-admin.db
-set container name PowerDNS-Admin image 'docker.io/powerdnsadmin/pda-legacy:0.4'
-set container name PowerDNS-Admin network containers address '10.5.0.22'
-set container name PowerDNS-Admin volume config destination /data
-set container name PowerDNS-Admin volume config source /config/containers/powerdns/admin
-set container name PowerDNS-Admin volume powerdns-db destination /database
-set container name PowerDNS-Admin volume powerdns-db source /config/containers/powerdns/authoritative
-
 # speedtest-exporter
 set container name speedtest-exporter image 'ghcr.io/miguelndecarvalho/speedtest-exporter:v3.5.4'
 set container name speedtest-exporter memory '0'
