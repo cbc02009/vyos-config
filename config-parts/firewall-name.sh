@@ -657,11 +657,6 @@ set firewall ipv4 name video-guest rule 999 log
 set firewall ipv4 name video-iot default-action 'drop'
 set firewall ipv4 name video-iot description 'From VIDEO to IOT'
 set firewall ipv4 name video-iot enable-default-log
-set firewall ipv4 name video-iot rule 100 action 'accept'
-set firewall ipv4 name video-iot rule 100 description 'Rule: allow connecting to hass'
-set firewall ipv4 name video-iot rule 100 protocol 'tcp'
-set firewall ipv4 name video-iot rule 100 destination group address-group 'k8s_hass'
-set firewall ipv4 name video-iot rule 100 destination port '8123'
 set firewall ipv4 name video-iot rule 999 action 'drop'
 set firewall ipv4 name video-iot rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name video-iot rule 999 state invalid
