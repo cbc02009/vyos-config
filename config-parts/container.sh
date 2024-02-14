@@ -113,7 +113,7 @@ set container name lego-auto volume datadir destination '/config'
 set container name lego-auto volume datadir mode 'rw'
 
 # pihole/unbound
-set container name pihole image 'ghcr.io/szinn/pihole-unbound:2024.01.0'
+set container name pihole image 'ghcr.io/szinn/pihole-unbound:2024.02.0'
 set container name pihole memory '0'
 set container name pihole network containers address '10.5.0.7'
 set container name pihole shared-memory '0'
