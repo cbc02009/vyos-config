@@ -96,7 +96,7 @@ set container name smtp-relay volume smtp-relay-config mode 'ro'
 set container name smtp-relay volume smtp-relay-config source '/config/containers/smtp-relay/config/maddy.conf'
 
 # wildcard certificate
-set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.2.0'
+set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.3.0'
 set container name lego-auto memory '0'
 set container name lego-auto allow-host-networks
 set container name lego-auto shared-memory '0'
