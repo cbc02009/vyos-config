@@ -29,11 +29,9 @@ petra                      IN  A 10.0.1.121
 nut-server                 IN  A  10.0.2.3
 shana                      IN  A  10.0.2.4
 uiharu                     IN  A  10.0.2.10
-anya                       IN  A  10.0.2.11
+anya                       IN  A  10.0.2.13
 sakura                     IN  A  10.0.2.12
-rem                        IN  A  10.0.2.13
-ram                        IN  A  10.0.2.14
-miri                       IN  A  10.0.2.15
+miri                       IN  A  10.0.2.11
 
 ; IOT
 prusa                      IN  A  10.0.3.110
@@ -45,7 +43,7 @@ printer                    IN  A  10.0.3.51
 talos                      IN  A  10.0.2.93
 
 ; Containers
-cluster                    IN  A  10.5.0.2
+main                       IN  A  10.5.0.2
 
 ; CNAME records
 nas                        IN  CNAME  shana.ctec.run.

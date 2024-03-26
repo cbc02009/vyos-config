@@ -1,6 +1,9 @@
 #!/bin/vbash
 
 # BGP configuration
+set protocols bgp neighbor 10.0.2.4 address-family ipv4-unicast
+set protocols bgp neighbor 10.0.2.4 description 'shana'
+set protocols bgp neighbor 10.0.2.4 remote-as '64512'
 set protocols bgp neighbor 10.0.2.10 address-family ipv4-unicast
 set protocols bgp neighbor 10.0.2.10 description 'uiharu'
 set protocols bgp neighbor 10.0.2.10 remote-as '64512'

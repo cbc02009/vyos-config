@@ -5,10 +5,12 @@
 !.gitignore
 
 !/bind/
+!/blocky/
 !/coredns/
 !/dnsdist/
 !/flexo/
 !/haproxy/
+!/matchbox/
 !/pihole/
 !/powerdns/
 !/smtp-relay/

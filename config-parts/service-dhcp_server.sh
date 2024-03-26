@@ -1,5 +1,7 @@
 #!/bin/vbash
 
+# Global options
+set service dhcp-server global-parameters 'option system-arch code 93 = unsigned integer 16;'
 set service dhcp-server dynamic-dns-update
 set service dhcp-server global-parameters "key ddnsupdate { algorithm hmac-md5; secret ${SECRET_DHCP_DDNS_UPDATE}; };"
 set service dhcp-server global-parameters "zone ctec.run. { primary 10.5.0.3; key ddnsupdate; }"
@@ -74,10 +76,10 @@ set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mappin
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping u6-lite-2 mac-address '60:22:32:40:D6:8C'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping USP-PDU-Pro ip-address '10.0.0.43'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping USP-PDU-Pro mac-address 'E4:38:83:1C:90:2D'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-1 ip-address '10.0.0.50'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-1 mac-address 'dc:a6:32:c8:36:33'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-2 ip-address '10.0.0.51'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm-2 mac-address 'e4:5f:01:41:3f:b6'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm ip-address '10.0.0.50'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping pikvm mac-address 'dc:a6:32:7c:e6:e5'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping media-switch ip-address '10.0.0.9'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 static-mapping media-switch mac-address '8C:3B:AD:30:24:23'
 
 # Servers VLAN
 set service dhcp-server shared-network-name SERVERS authoritative
@@ -89,17 +91,22 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 name-serv
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 range 0 start '10.0.2.200'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 range 0 stop '10.0.2.254'
 
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Ram ip-address '10.0.2.14'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Ram mac-address '68:1D:EF:2D:E3:47'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Rem ip-address '10.0.2.13'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Rem mac-address '68:1D:EF:2D:79:3F'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'allow bootp;'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'allow booting;'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'next-server 10.0.2.1;'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'if exists user-class and option user-class = &quot;iPXE&quot; {'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'filename &quot;http://10.5.0.8/boot.ipxe&quot;;'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters '} else {'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'filename &quot;ipxe.efi&quot;;'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters '}'
+
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura ip-address '10.0.2.12'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura mac-address 'E4:1D:2D:DD:7C:60'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura mac-address '58:47:ca:71:c5:02'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu ip-address '10.0.2.10'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu mac-address 'E4:1D:2D:12:4B:60'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri ip-address '10.0.2.15'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu mac-address '58:47:ca:73:bd:aa'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri ip-address '10.0.2.11'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Miri mac-address '58:47:ca:71:c1:b2'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya ip-address '10.0.2.11'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya ip-address '10.0.2.13'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Anya mac-address 'FC:3F:DB:0E:7A:79'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos ip-address '10.0.2.93'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Talos mac-address '00:16:3E:FB:30:AA'
@@ -119,7 +126,7 @@ set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 range 0 s
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Shinobu ip-address '10.0.1.5'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Shinobu mac-address 'B4:2E:99:3E:A5:4F'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Yuzu ip-address '10.0.1.50'
-set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Yuzu mac-address 'F4:7B:09:9B:DD:9A'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Yuzu mac-address '14:AC:60:29:76:1F'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping claire-iphone ip-address '10.0.1.81'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping claire-iphone mac-address '26:A7:03:FF:99:17'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 static-mapping Sulleta ip-address '10.0.1.64'
