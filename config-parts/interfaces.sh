@@ -17,8 +17,9 @@ set interface ethernet eth1 offload sg
 set interface ethernet eth1 offload tso
 
 
-# ETH2
+# ETH2 DNS
 set interfaces ethernet eth2 hw-id '1c:fd:08:74:1b:0a'
+set interfaces ethernet eth2 address '10.7.0.1/24'
 set interface ethernet eth2 offload gro
 set interface ethernet eth2 offload gso
 set interface ethernet eth2 offload sg
@@ -56,12 +57,15 @@ set interfaces bonding bond0 vif 10 description 'TRUSTED'
 set interfaces bonding bond0 vif 20 address '10.0.2.1/24'
 set interfaces bonding bond0 vif 20 description 'SERVERS'
 
+# BOND0.30 GUEST
 set interfaces bonding bond0 vif 30 address '192.168.2.1/24'
 set interfaces bonding bond0 vif 30 description 'GUEST'
 
+# BOND0.40 IOT
 set interfaces bonding bond0 vif 40 address '10.0.3.1/24'
 set interfaces bonding bond0 vif 40 description 'IOT'
 
+# BOND0.30 VIDEO
 set interfaces bonding bond0 vif 50 address '10.0.4.1/24'
 set interfaces bonding bond0 vif 50 description 'VIDEO'
 

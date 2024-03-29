@@ -150,3 +150,13 @@ set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 range 0 sto
 
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell ip-address '10.0.4.10'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell mac-address '38:E7:C0:C3:7D:A2'
+
+# DNS LAN (temporary)
+set service dhcp-server shared-network-name DNS authoritative
+set service dhcp-server shared-network-name DNS ping-check
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 default-router '10.7.0.1'
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 domain-name 'ctec.run'
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 lease '86400'
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 range 0 start '10.7.0.200'
+set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 range 0 stop '10.7.0.254'

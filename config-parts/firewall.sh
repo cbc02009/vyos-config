@@ -10,11 +10,6 @@ set firewall global-options broadcast-ping disable
 set firewall group address-group router-addresses address 10.0.0.1
 set firewall group address-group router-addresses address 127.0.0.1
 
-# Address Groups
-set firewall group address-group k8s_api address '10.5.0.2'
-set firewall group address-group k8s_ingress address '10.6.0.1'
-set firewall group address-group k8s_ingress address '10.6.0.2'
-
 # k8s nodes
 set firewall group address-group k8s_nodes address '10.0.2.10-10.0.2.15'
 

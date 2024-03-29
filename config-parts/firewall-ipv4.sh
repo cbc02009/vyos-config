@@ -1,5 +1,14 @@
 #!/bin/vbash
 
+# From CONTAINERS to DNS
+set firewall ipv4 name containers-dns default-action 'drop'
+set firewall ipv4 name containers-dns description 'From CONTAINERS to DNS'
+set firewall ipv4 name containers-dns enable-default-log
+set firewall ipv4 name containers-dns rule 999 action 'drop'
+set firewall ipv4 name containers-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name containers-dns rule 999 state invalid
+set firewall ipv4 name containers-dns rule 999 log
+
 # From CONTAINERS to GUEST
 set firewall ipv4 name containers-guest default-action 'drop'
 set firewall ipv4 name containers-guest description 'From CONTAINERS to GUEST'
@@ -75,6 +84,108 @@ set firewall ipv4 name containers-video rule 999 log
 set firewall ipv4 name containers-wan default-action 'accept'
 set firewall ipv4 name containers-wan description 'From CONTAINERS to WAN'
 
+# From DNS to CONTAINERS
+set firewall ipv4 name dns-containers default-action 'drop'
+set firewall ipv4 name dns-containers description 'From DNS to CONTAINERS'
+set firewall ipv4 name dns-containers enable-default-log
+set firewall ipv4 name dns-containers rule 999 action 'drop'
+set firewall ipv4 name dns-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-containers rule 999 state invalid
+set firewall ipv4 name dns-containers rule 999 log
+
+# From DNS to GUEST
+set firewall ipv4 name dns-guest default-action 'drop'
+set firewall ipv4 name dns-guest description 'From DNS to GUEST'
+set firewall ipv4 name dns-guest enable-default-log
+set firewall ipv4 name dns-guest rule 999 action 'drop'
+set firewall ipv4 name dns-guest rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-guest rule 999 state invalid
+set firewall ipv4 name dns-guest rule 999 log
+
+# From DNS to IOT
+set firewall ipv4 name dns-iot default-action 'drop'
+set firewall ipv4 name dns-iot description 'From DNS to IOT'
+set firewall ipv4 name dns-iot enable-default-log
+set firewall ipv4 name dns-iot rule 999 action 'drop'
+set firewall ipv4 name dns-iot rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-iot rule 999 state invalid
+set firewall ipv4 name dns-iot rule 999 log
+
+# From DNS to LAN
+set firewall ipv4 name dns-lan default-action 'drop'
+set firewall ipv4 name dns-lan description 'From DNS to LAN'
+set firewall ipv4 name dns-lan enable-default-log
+set firewall ipv4 name dns-lan rule 999 action 'drop'
+set firewall ipv4 name dns-lan rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-lan rule 999 state invalid
+set firewall ipv4 name dns-lan rule 999 log
+
+# From DNS to LOCAL
+set firewall ipv4 name dns-local default-action 'drop'
+set firewall ipv4 name dns-local description 'From DNS to LOCAL'
+set firewall ipv4 name dns-local enable-default-log
+set firewall ipv4 name dns-local rule 999 action 'drop'
+set firewall ipv4 name dns-local rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-local rule 999 state invalid
+set firewall ipv4 name dns-local rule 999 log
+
+# From DNS to SERVERS
+set firewall ipv4 name dns-servers default-action 'drop'
+set firewall ipv4 name dns-servers description 'From DNS to VIDEO'
+set firewall ipv4 name dns-servers enable-default-log
+set firewall ipv4 name dns-servers rule 999 action 'drop'
+set firewall ipv4 name dns-servers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-servers rule 999 state invalid
+set firewall ipv4 name dns-servers rule 999 log
+
+# From DNS to TRUSTED
+set firewall ipv4 name dns-trusted default-action 'drop'
+set firewall ipv4 name dns-trusted description 'From DNS to TRUSTED'
+set firewall ipv4 name dns-trusted enable-default-log
+set firewall ipv4 name dns-trusted rule 999 action 'drop'
+set firewall ipv4 name dns-trusted rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-trusted rule 999 state invalid
+set firewall ipv4 name dns-trusted rule 999 log
+
+# From DNS to VIDEO
+set firewall ipv4 name dns-video default-action 'drop'
+set firewall ipv4 name dns-video description 'From DNS to VIDEO'
+set firewall ipv4 name dns-video enable-default-log
+set firewall ipv4 name dns-video rule 999 action 'drop'
+set firewall ipv4 name dns-video rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name dns-video rule 999 state invalid
+set firewall ipv4 name dns-video rule 999 log
+
+# From DNS to WAN
+set firewall ipv4 name dns-wan default-action 'accept'
+set firewall ipv4 name dns-wan description 'From DNS to WAN'
+
+# From GUEST to CONTAINERS
+set firewall ipv4 name guest-containers default-action 'drop'
+set firewall ipv4 name guest-containers description 'From GUEST to CONTAINERS'
+set firewall ipv4 name guest-containers enable-default-log
+set firewall ipv4 name guest-containers rule 40 action 'accept'
+set firewall ipv4 name guest-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name guest-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name guest-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name guest-containers rule 999 action 'drop'
+set firewall ipv4 name guest-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name guest-containers rule 999 state invalid
+set firewall ipv4 name guest-containers rule 999 log
+
+# From GUEST to DNS
+set firewall ipv4 name guest-dns default-action 'drop'
+set firewall ipv4 name guest-dns description 'From GUEST to DNS'
+set firewall ipv4 name guest-dns enable-default-log
+set firewall ipv4 name guest-dns rule 40 action 'accept'
+set firewall ipv4 name guest-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name guest-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name guest-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name guest-dns rule 999 action 'drop'
+set firewall ipv4 name guest-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name guest-dns rule 999 state invalid
+set firewall ipv4 name guest-dns rule 999 log
+
 # From GUEST to IOT
 set firewall ipv4 name guest-iot default-action 'drop'
 set firewall ipv4 name guest-iot description 'From GUEST to IOT'
@@ -116,19 +227,6 @@ set firewall ipv4 name guest-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name guest-servers rule 999 state invalid
 set firewall ipv4 name guest-servers rule 999 log
 
-# From GUEST to CONTAINERS
-set firewall ipv4 name guest-containers default-action 'drop'
-set firewall ipv4 name guest-containers description 'From GUEST to CONTAINERS'
-set firewall ipv4 name guest-containers enable-default-log
-set firewall ipv4 name guest-containers rule 40 action 'accept'
-set firewall ipv4 name guest-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name guest-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name guest-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name guest-containers rule 999 action 'drop'
-set firewall ipv4 name guest-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name guest-containers rule 999 state invalid
-set firewall ipv4 name guest-containers rule 999 log
-
 # From GUEST to TRUSTED
 set firewall ipv4 name guest-trusted default-action 'drop'
 set firewall ipv4 name guest-trusted description 'From GUEST to TRUSTED'
@@ -150,6 +248,30 @@ set firewall ipv4 name guest-video rule 999 log
 # From GUEST to WAN
 set firewall ipv4 name guest-wan default-action 'accept'
 set firewall ipv4 name guest-wan description 'From GUEST to WAN'
+
+# From IOT to CONTAINERS
+set firewall ipv4 name iot-containers default-action 'accept'
+set firewall ipv4 name iot-containers description 'From IOT to CONTAINERS'
+set firewall ipv4 name iot-containers rule 40 action 'accept'
+set firewall ipv4 name iot-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name iot-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name iot-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name iot-containers rule 999 action 'drop'
+set firewall ipv4 name iot-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name iot-containers rule 999 state invalid
+set firewall ipv4 name iot-containers rule 999 log
+
+# From IOT to DNS
+set firewall ipv4 name iot-dns default-action 'drop'
+set firewall ipv4 name iot-dns description 'From IOT to DNS'
+set firewall ipv4 name iot-dns rule 40 action 'accept'
+set firewall ipv4 name iot-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name iot-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name iot-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name iot-dns rule 999 action 'drop'
+set firewall ipv4 name iot-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name iot-dns rule 999 state invalid
+set firewall ipv4 name iot-dns rule 999 log
 
 # From IOT to GUEST
 set firewall ipv4 name iot-guest default-action 'drop'
@@ -210,18 +332,6 @@ set firewall ipv4 name iot-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name iot-servers rule 999 state invalid
 set firewall ipv4 name iot-servers rule 999 log
 
-# From IOT to CONTAINERS
-set firewall ipv4 name iot-containers default-action 'accept'
-set firewall ipv4 name iot-containers description 'From IOT to CONTAINERS'
-set firewall ipv4 name iot-containers rule 40 action 'accept'
-set firewall ipv4 name iot-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name iot-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name iot-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name iot-containers rule 999 action 'drop'
-set firewall ipv4 name iot-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name iot-containers rule 999 state invalid
-set firewall ipv4 name iot-containers rule 999 log
-
 # From IOT to TRUSTED
 set firewall ipv4 name iot-trusted default-action 'drop'
 set firewall ipv4 name iot-trusted description 'From IOT to TRUSTED'
@@ -243,6 +353,30 @@ set firewall ipv4 name iot-video rule 999 log
 # From IOT to WAN
 set firewall ipv4 name iot-wan default-action 'accept'
 set firewall ipv4 name iot-wan description 'From IOT to WAN'
+
+# From LAN to CONTAINERS
+set firewall ipv4 name lan-containers default-action 'accept'
+set firewall ipv4 name lan-containers description 'From LAN to CONTAINERS'
+set firewall ipv4 name lan-containers rule 40 action 'accept'
+set firewall ipv4 name lan-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name lan-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name lan-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name lan-containers rule 999 action 'drop'
+set firewall ipv4 name lan-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name lan-containers rule 999 state invalid
+set firewall ipv4 name lan-containers rule 999 log
+
+# From LAN to DNS
+set firewall ipv4 name lan-dns default-action 'drop'
+set firewall ipv4 name lan-dns description 'From LAN to DNS'
+set firewall ipv4 name lan-dns rule 40 action 'accept'
+set firewall ipv4 name lan-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name lan-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name lan-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name lan-dns rule 999 action 'drop'
+set firewall ipv4 name lan-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name lan-dns rule 999 state invalid
+set firewall ipv4 name lan-dns rule 999 log
 
 # From LAN to GUEST
 set firewall ipv4 name lan-guest default-action 'drop'
@@ -308,18 +442,6 @@ set firewall ipv4 name lan-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name lan-servers rule 999 state invalid
 set firewall ipv4 name lan-servers rule 999 log
 
-# From LAN to CONTAINERS
-set firewall ipv4 name lan-containers default-action 'accept'
-set firewall ipv4 name lan-containers description 'From LAN to CONTAINERS'
-set firewall ipv4 name lan-containers rule 40 action 'accept'
-set firewall ipv4 name lan-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name lan-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name lan-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name lan-containers rule 999 action 'drop'
-set firewall ipv4 name lan-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name lan-containers rule 999 state invalid
-set firewall ipv4 name lan-containers rule 999 log
-
 # From LAN to TRUSTED
 set firewall ipv4 name lan-trusted default-action 'drop'
 set firewall ipv4 name lan-trusted description 'From LAN to TRUSTED'
@@ -341,6 +463,30 @@ set firewall ipv4 name lan-video rule 999 log
 # From LAN to WAN
 set firewall ipv4 name lan-wan default-action 'accept'
 set firewall ipv4 name lan-wan description 'From LAN to WAN'
+
+# From LOCAL to CONTAINERS
+set firewall ipv4 name local-containers default-action 'accept'
+set firewall ipv4 name local-containers description 'From LOCAL to CONTAINERS'
+set firewall ipv4 name local-containers rule 40 action 'accept'
+set firewall ipv4 name local-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name local-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name local-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name local-containers rule 999 action 'drop'
+set firewall ipv4 name local-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name local-containers rule 999 state invalid
+set firewall ipv4 name local-containers rule 999 log
+
+# From LOCAL to DNS
+set firewall ipv4 name local-dns default-action 'drop'
+set firewall ipv4 name local-dns description 'From LOCAL to DNS'
+set firewall ipv4 name local-dns rule 40 action 'accept'
+set firewall ipv4 name local-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name local-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name local-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name local-dns rule 999 action 'drop'
+set firewall ipv4 name local-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name local-dns rule 999 state invalid
+set firewall ipv4 name local-dns rule 999 log
 
 # From LOCAL to GUEST
 set firewall ipv4 name local-guest default-action 'drop'
@@ -403,18 +549,6 @@ set firewall ipv4 name local-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name local-servers rule 999 state invalid
 set firewall ipv4 name local-servers rule 999 log
 
-# From LOCAL to CONTAINERS
-set firewall ipv4 name local-containers default-action 'accept'
-set firewall ipv4 name local-containers description 'From LOCAL to CONTAINERS'
-set firewall ipv4 name local-containers rule 40 action 'accept'
-set firewall ipv4 name local-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name local-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name local-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name local-containers rule 999 action 'drop'
-set firewall ipv4 name local-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name local-containers rule 999 state invalid
-set firewall ipv4 name local-containers rule 999 log
-
 # From LOCAL to TRUSTED
 set firewall ipv4 name local-trusted default-action 'drop'
 set firewall ipv4 name local-trusted description 'From LOCAL to TRUSTED'
@@ -448,6 +582,35 @@ set firewall ipv4 name local-video rule 999 log
 # From LOCAL to WAN
 set firewall ipv4 name local-wan default-action 'accept'
 set firewall ipv4 name local-wan description 'From LOCAL to WAN'
+
+# From SERVERS to CONTAINERS
+set firewall ipv4 name servers-containers default-action 'accept'
+set firewall ipv4 name servers-containers description 'From SERVERS to CONTAINERS'
+set firewall ipv4 name servers-containers enable-default-log
+set firewall ipv4 name servers-containers rule 40 action 'accept'
+set firewall ipv4 name servers-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name servers-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name servers-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name servers-containers rule 100 action 'accept'
+set firewall ipv4 name servers-containers rule 100 description 'Rule: accept_k8s_nodes'
+set firewall ipv4 name servers-containers rule 100 protocol 'tcp'
+set firewall ipv4 name servers-containers rule 100 source group address-group 'k8s_nodes'
+set firewall ipv4 name servers-containers rule 999 action 'drop'
+set firewall ipv4 name servers-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name servers-containers rule 999 state invalid
+set firewall ipv4 name servers-containers rule 999 log
+
+# From SERVERS to DNS
+set firewall ipv4 name servers-dns default-action 'drop'
+set firewall ipv4 name servers-dns description 'From SERVERS to DNS'
+set firewall ipv4 name servers-dns rule 40 action 'accept'
+set firewall ipv4 name servers-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name servers-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name servers-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name servers-dns rule 999 action 'drop'
+set firewall ipv4 name servers-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name servers-dns rule 999 state invalid
+set firewall ipv4 name servers-dns rule 999 log
 
 # From SERVERS to GUEST
 set firewall ipv4 name servers-guest default-action 'drop'
@@ -524,23 +687,6 @@ set firewall ipv4 name servers-local rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name servers-local rule 999 state invalid
 set firewall ipv4 name servers-local rule 999 log
 
-# From SERVERS to CONTAINERS
-set firewall ipv4 name servers-containers default-action 'accept'
-set firewall ipv4 name servers-containers description 'From SERVERS to CONTAINERS'
-set firewall ipv4 name servers-containers enable-default-log
-set firewall ipv4 name servers-containers rule 40 action 'accept'
-set firewall ipv4 name servers-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name servers-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name servers-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name servers-containers rule 100 action 'accept'
-set firewall ipv4 name servers-containers rule 100 description 'Rule: accept_k8s_nodes'
-set firewall ipv4 name servers-containers rule 100 protocol 'tcp'
-set firewall ipv4 name servers-containers rule 100 source group address-group 'k8s_nodes'
-set firewall ipv4 name servers-containers rule 999 action 'drop'
-set firewall ipv4 name servers-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name servers-containers rule 999 state invalid
-set firewall ipv4 name servers-containers rule 999 log
-
 # From SERVERS to TRUSTED
 set firewall ipv4 name servers-trusted default-action 'drop'
 set firewall ipv4 name servers-trusted description 'From SERVERS to TRUSTED'
@@ -566,6 +712,30 @@ set firewall ipv4 name servers-video rule 999 log
 # From SERVERS to WAN
 set firewall ipv4 name servers-wan default-action 'accept'
 set firewall ipv4 name servers-wan description 'From SERVERS to WAN'
+
+# From TRUSTED to CONTAINERS
+set firewall ipv4 name trusted-containers default-action 'accept'
+set firewall ipv4 name trusted-containers description 'From TRUSTED to CONTAINERS'
+set firewall ipv4 name trusted-containers rule 40 action 'accept'
+set firewall ipv4 name trusted-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name trusted-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name trusted-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name trusted-containers rule 999 action 'drop'
+set firewall ipv4 name trusted-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name trusted-containers rule 999 state invalid
+set firewall ipv4 name trusted-containers rule 999 log
+
+# From TRUSTED to DNS
+set firewall ipv4 name trusted-dns default-action 'accept'
+set firewall ipv4 name trusted-dns description 'From TRUSTED to DNS'
+set firewall ipv4 name trusted-dns rule 40 action 'accept'
+set firewall ipv4 name trusted-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name trusted-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name trusted-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name trusted-dns rule 999 action 'drop'
+set firewall ipv4 name trusted-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name trusted-dns rule 999 state invalid
+set firewall ipv4 name trusted-dns rule 999 log
 
 # From TRUSTED to GUEST
 set firewall ipv4 name trusted-guest default-action 'drop'
@@ -642,18 +812,6 @@ set firewall ipv4 name trusted-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name trusted-servers rule 999 state invalid
 set firewall ipv4 name trusted-servers rule 999 log
 
-# From TRUSTED to CONTAINERS
-set firewall ipv4 name trusted-containers default-action 'accept'
-set firewall ipv4 name trusted-containers description 'From TRUSTED to CONTAINERS'
-set firewall ipv4 name trusted-containers rule 40 action 'accept'
-set firewall ipv4 name trusted-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name trusted-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name trusted-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name trusted-containers rule 999 action 'drop'
-set firewall ipv4 name trusted-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name trusted-containers rule 999 state invalid
-set firewall ipv4 name trusted-containers rule 999 log
-
 # From TRUSTED to VIDEO
 set firewall ipv4 name trusted-video default-action 'accept'
 set firewall ipv4 name trusted-video description 'From TRUSTED to VIDEO'
@@ -665,6 +823,30 @@ set firewall ipv4 name trusted-video rule 999 log
 # From TRUSTED to WAN
 set firewall ipv4 name trusted-wan default-action 'accept'
 set firewall ipv4 name trusted-wan description 'From TRUSTED to WAN'
+
+# From VIDEO to CONTAINERS
+set firewall ipv4 name video-containers default-action 'accept'
+set firewall ipv4 name video-containers description 'From VIDEO to CONTAINERS'
+set firewall ipv4 name video-containers rule 40 action 'accept'
+set firewall ipv4 name video-containers rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name video-containers rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name video-containers rule 40 protocol 'tcp_udp'
+set firewall ipv4 name video-containers rule 999 action 'drop'
+set firewall ipv4 name video-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name video-containers rule 999 state invalid
+set firewall ipv4 name video-containers rule 999 log
+
+# From VIDEO to DNS
+set firewall ipv4 name video-dns default-action 'drop'
+set firewall ipv4 name video-dns description 'From VIDEO to DNS'
+set firewall ipv4 name video-dns rule 40 action 'accept'
+set firewall ipv4 name video-dns rule 40 description 'Rule: accept_dns'
+set firewall ipv4 name video-dns rule 40 destination port 'domain,domain-s'
+set firewall ipv4 name video-dns rule 40 protocol 'tcp_udp'
+set firewall ipv4 name video-dns rule 999 action 'drop'
+set firewall ipv4 name video-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name video-dns rule 999 state invalid
+set firewall ipv4 name video-dns rule 999 log
 
 # From VIDEO to GUEST
 set firewall ipv4 name video-guest default-action 'drop'
@@ -725,18 +907,6 @@ set firewall ipv4 name video-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name video-servers rule 999 state invalid
 set firewall ipv4 name video-servers rule 999 log
 
-# From VIDEO to CONTAINERS
-set firewall ipv4 name video-containers default-action 'accept'
-set firewall ipv4 name video-containers description 'From VIDEO to CONTAINERS'
-set firewall ipv4 name video-containers rule 40 action 'accept'
-set firewall ipv4 name video-containers rule 40 description 'Rule: accept_dns'
-set firewall ipv4 name video-containers rule 40 destination port 'domain,domain-s'
-set firewall ipv4 name video-containers rule 40 protocol 'tcp_udp'
-set firewall ipv4 name video-containers rule 999 action 'drop'
-set firewall ipv4 name video-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name video-containers rule 999 state invalid
-set firewall ipv4 name video-containers rule 999 log
-
 # From VIDEO to TRUSTED
 set firewall ipv4 name video-trusted default-action 'drop'
 set firewall ipv4 name video-trusted description 'From VIDEO to TRUSTED'
@@ -749,6 +919,24 @@ set firewall ipv4 name video-trusted rule 999 log
 # From VIDEO to WAN
 set firewall ipv4 name video-wan default-action 'drop'
 set firewall ipv4 name video-wan description 'From VIDEO to WAN'
+
+# From WAN to CONTAINERS
+set firewall ipv4 name wan-containers default-action 'drop'
+set firewall ipv4 name wan-containers description 'From WAN to CONTAINERS'
+set firewall ipv4 name wan-containers enable-default-log
+set firewall ipv4 name wan-containers rule 999 action 'drop'
+set firewall ipv4 name wan-containers rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name wan-containers rule 999 state invalid
+set firewall ipv4 name wan-containers rule 999 log
+
+# From WAN to DNS
+set firewall ipv4 name wan-dns default-action 'drop'
+set firewall ipv4 name wan-dns description 'From WAN to DNS'
+set firewall ipv4 name wan-dns enable-default-log
+set firewall ipv4 name wan-dns rule 999 action 'drop'
+set firewall ipv4 name wan-dns rule 999 description 'Rule: drop_invalid'
+set firewall ipv4 name wan-dns rule 999 state invalid
+set firewall ipv4 name wan-dns rule 999 log
 
 # From WAN to GUEST
 set firewall ipv4 name wan-guest default-action 'drop'
@@ -798,15 +986,6 @@ set firewall ipv4 name wan-servers rule 999 action 'drop'
 set firewall ipv4 name wan-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name wan-servers rule 999 state invalid
 set firewall ipv4 name wan-servers rule 999 log
-
-# From WAN to CONTAINERS
-set firewall ipv4 name wan-containers default-action 'drop'
-set firewall ipv4 name wan-containers description 'From WAN to CONTAINERS'
-set firewall ipv4 name wan-containers enable-default-log
-set firewall ipv4 name wan-containers rule 999 action 'drop'
-set firewall ipv4 name wan-containers rule 999 description 'Rule: drop_invalid'
-set firewall ipv4 name wan-containers rule 999 state invalid
-set firewall ipv4 name wan-containers rule 999 log
 
 # From WAN to TRUSTED
 set firewall ipv4 name wan-trusted default-action 'drop'
