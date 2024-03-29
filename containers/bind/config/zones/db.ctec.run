@@ -46,5 +46,6 @@ talos                      IN  A  10.0.2.93
 main                       IN  A  10.5.0.2
 
 ; CNAME records
+cluster                    IN  CNAME  main.ctec.run.
 nas                        IN  CNAME  shana.ctec.run.
 s3                         IN  CNAME  minio.ctec.run.

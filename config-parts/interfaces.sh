@@ -9,24 +9,16 @@ set interface ethernet eth0 offload gso
 set interface ethernet eth0 offload sg
 set interface ethernet eth0 offload tso
 
-# ETH1 IOT/VIDEO
+# ETH1
 set interfaces ethernet eth1 hw-id '1c:fd:08:74:1b:0b'
-set interfaces ethernet eth1 vif 40 address '10.0.3.1/24'
-set interfaces ethernet eth1 vif 40 description 'IOT'
-set interfaces ethernet eth1 vif 50 address '10.0.4.1/24'
-set interfaces ethernet eth1 vif 50 description 'VIDEO'
 set interface ethernet eth1 offload gro
 set interface ethernet eth1 offload gso
 set interface ethernet eth1 offload sg
 set interface ethernet eth1 offload tso
 
 
-# ETH2 LAN/GUEST
+# ETH2
 set interfaces ethernet eth2 hw-id '1c:fd:08:74:1b:0a'
-set interfaces ethernet eth2 address '10.0.0.1/24'
-set interfaces ethernet eth2 description 'LAN'
-set interfaces ethernet eth2 vif 30 address '192.168.2.1/24'
-set interfaces ethernet eth2 vif 30 description 'GUEST'
 set interface ethernet eth2 offload gro
 set interface ethernet eth2 offload gso
 set interface ethernet eth2 offload sg
@@ -47,12 +39,14 @@ set interface ethernet eth4 offload gso
 set interface ethernet eth4 offload sg
 set interface ethernet eth4 offload tso
 
-# BOND0
+# BOND0 LAN
 set interfaces bonding bond0
 set interfaces bonding bond0 hash-policy 'layer3+4'
 set interfaces bonding bond0 mode '802.3ad'
 set interfaces bonding bond0 member interface eth3
 set interfaces bonding bond0 member interface eth4
+set interfaces bonding bond0 address '10.0.0.1/24'
+set interfaces bonding bond0 description 'LAN'
 
 # BOND0.10 TRUSTED
 set interfaces bonding bond0 vif 10 address '10.0.1.1/24'
@@ -61,6 +55,15 @@ set interfaces bonding bond0 vif 10 description 'TRUSTED'
 # BOND0.20 SERVERS
 set interfaces bonding bond0 vif 20 address '10.0.2.1/24'
 set interfaces bonding bond0 vif 20 description 'SERVERS'
+
+set interfaces bonding bond0 vif 30 address '192.168.2.1/24'
+set interfaces bonding bond0 vif 30 description 'GUEST'
+
+set interfaces bonding bond0 vif 40 address '10.0.3.1/24'
+set interfaces bonding bond0 vif 40 description 'IOT'
+
+set interfaces bonding bond0 vif 50 address '10.0.4.1/24'
+set interfaces bonding bond0 vif 50 description 'VIDEO'
 
 # WIREGUARD
 set interfaces wireguard wg01 address '10.0.11.1/24'

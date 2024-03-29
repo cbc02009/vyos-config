@@ -25,6 +25,12 @@ set firewall group address-group k8s_ingress address '10.6.0.2'
 set firewall group address-group k8s_plex address ${LB_PLEX}
 set firewall group address-group k8s_vector_aggregator address ${LB_VECTOR}
 
+# Printers
+set firewall group address-group printers address '10.0.3.51'
+
+# Scanners
+set firewall group address-group scanners address '10.0.3.51'
+
 # Unifi devices
 set firewall group address-group unifi_devices address '10.0.0.40-10.0.0.43' # APs
 

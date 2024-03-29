@@ -103,8 +103,8 @@ set container name speedtest-exporter shared-memory '0'
 # smtp-relay
 set container name smtp-relay environment SMTP_DOMAIN value 'kokoro.wtf'
 set container name smtp-relay environment SMTP_PASSWORD value ${SECRET_SMTP_PASSWORD}
-set container name smtp-relay environment SMTP_PORT value '465'
-set container name smtp-relay environment SMTP_SERVER value 'smtp.fastmail.com'
+set container name smtp-relay environment SMTP_PORT value '587'
+set container name smtp-relay environment SMTP_SERVER value 'smtp.postmarkapp.com'
 set container name smtp-relay environment SMTP_USERNAME value ${SECRET_SMTP_USERNAME}
 set container name smtp-relay image 'ghcr.io/foxcpp/maddy:0.7.1'
 set container name smtp-relay memory '0'

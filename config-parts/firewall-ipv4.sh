@@ -199,6 +199,12 @@ set firewall ipv4 name iot-local rule 999 log
 set firewall ipv4 name iot-servers default-action 'drop'
 set firewall ipv4 name iot-servers description 'From IOT to SERVERS'
 set firewall ipv4 name iot-servers enable-default-log
+set firewall ipv4 name iot-servers rule 100 action 'accept'
+set firewall ipv4 name iot-servers rule 100 description 'Rule: accept_nas_smb_from_scanners'
+set firewall ipv4 name iot-servers rule 100 destination group address-group 'nas'
+set firewall ipv4 name iot-servers rule 100 destination port 'microsoft-ds'
+set firewall ipv4 name iot-servers rule 100 protocol 'tcp'
+set firewall ipv4 name iot-servers rule 100 source group address-group 'scanners'
 set firewall ipv4 name iot-servers rule 999 action 'drop'
 set firewall ipv4 name iot-servers rule 999 description 'Rule: drop_invalid'
 set firewall ipv4 name iot-servers rule 999 state invalid
