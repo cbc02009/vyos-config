@@ -2,19 +2,19 @@
 
 # Force DNS
 set nat destination rule 102 description 'Force DNS for IoT'
-set nat destination rule 102 destination address '!10.5.0.4'
+set nat destination rule 102 destination address '!10.4.0.4'
 set nat destination rule 102 destination port '53'
 set nat destination rule 102 inbound-interface name ${INT_IOT}
 set nat destination rule 102 protocol 'tcp_udp'
-set nat destination rule 102 translation address '10.5.0.4'
+set nat destination rule 102 translation address '10.4.0.4'
 set nat destination rule 102 translation port '53'
 
 set nat destination rule 103 description 'Force DNS for LAN'
-set nat destination rule 103 destination address '!10.5.0.4'
+set nat destination rule 103 destination address '!10.4.0.4'
 set nat destination rule 103 destination port '53'
 set nat destination rule 103 inbound-interface name ${INT_LAN}
 set nat destination rule 103 protocol 'tcp_udp'
-set nat destination rule 103 translation address '10.5.0.4'
+set nat destination rule 103 translation address '10.4.0.4'
 set nat destination rule 103 translation port '53'
 
 # Force NTP

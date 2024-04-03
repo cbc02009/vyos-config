@@ -4,18 +4,18 @@
 set service dhcp-server global-parameters 'option system-arch code 93 = unsigned integer 16;'
 set service dhcp-server dynamic-dns-update
 set service dhcp-server global-parameters "key ddnsupdate { algorithm hmac-md5; secret ${SECRET_DHCP_DDNS_UPDATE}; };"
-set service dhcp-server global-parameters "zone ctec.run. { primary 10.5.0.3; key ddnsupdate; }"
+set service dhcp-server global-parameters "zone ctec.run. { primary 10.4.0.3; key ddnsupdate; }"
 set service dhcp-server global-parameters "ddns-domainname &quot;ctec.run.&quot;;"
 set service dhcp-server global-parameters "ddns-rev-domainname &quot;in-addr.arpa.&quot;;"
-set service dhcp-server global-parameters "zone in-addr.arpa. { primary 10.5.0.3; key ddnsupdate; }"
-set service dhcp-server global-parameters "zone 0.10.in-addr.arpa. { primary 10.5.0.3; key ddnsupdate; }"
+set service dhcp-server global-parameters "zone in-addr.arpa. { primary 10.4.0.3; key ddnsupdate; }"
+set service dhcp-server global-parameters "zone 0.10.in-addr.arpa. { primary 10.4.0.3; key ddnsupdate; }"
 
 # Guest VLAN
 set service dhcp-server shared-network-name GUEST authoritative
 set service dhcp-server shared-network-name GUEST ping-check
 set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 default-router '192.168.2.1'
 set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 lease '86400'
-set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 range 0 start '192.168.2.100'
 set service dhcp-server shared-network-name GUEST subnet 192.168.2.0/24 range 0 stop '192.168.2.254'
 
@@ -25,7 +25,7 @@ set service dhcp-server shared-network-name IOT ping-check
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 default-router '10.0.3.1'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 domain-name 'ctec.run'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 lease '86400'
-set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 range 0 start '10.0.3.200'
 set service dhcp-server shared-network-name IOT subnet 10.0.3.0/24 range 0 stop '10.0.3.254'
 
@@ -57,7 +57,7 @@ set service dhcp-server shared-network-name LAN authoritative
 set service dhcp-server shared-network-name LAN ping-check
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 default-router '10.0.0.1'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 lease '86400'
-set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 range 0 start '10.0.0.200'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 range 0 stop '10.0.0.254'
 set service dhcp-server shared-network-name LAN subnet 10.0.0.0/24 domain-name 'ctec.run'
@@ -87,7 +87,7 @@ set service dhcp-server shared-network-name SERVERS ping-check
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 default-router '10.0.2.1'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 domain-name ctec.run
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 lease '86400'
-set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 range 0 start '10.0.2.200'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 range 0 stop '10.0.2.254'
 
@@ -100,6 +100,8 @@ set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-pa
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters 'filename &quot;ipxe.efi&quot;;'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 subnet-parameters '}'
 
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Ivy ip-address '10.0.2.5'
+set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Ivy mac-address '68:1d:ef:2d:e3:47'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura ip-address '10.0.2.12'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Sakura mac-address '58:47:ca:71:c5:02'
 set service dhcp-server shared-network-name SERVERS subnet 10.0.2.0/24 static-mapping Uiharu ip-address '10.0.2.10'
@@ -119,7 +121,7 @@ set service dhcp-server shared-network-name TRUSTED ping-check
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 default-router '10.0.1.1'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 domain-name ctec.run
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 lease '86400'
-set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 range 0 start '10.0.1.200'
 set service dhcp-server shared-network-name TRUSTED subnet 10.0.1.0/24 range 0 stop '10.0.1.254'
 
@@ -144,19 +146,9 @@ set service dhcp-server shared-network-name VIDEO ping-check
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 default-router '10.0.4.1'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 domain-name 'ctec.run'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 lease '86400'
-set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 name-server '10.5.0.4'
+set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 name-server '10.4.0.4'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 range 0 start '10.0.4.200'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 range 0 stop '10.0.4.254'
 
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell ip-address '10.0.4.10'
 set service dhcp-server shared-network-name VIDEO subnet 10.0.4.0/24 static-mapping camera-doorbell mac-address '38:E7:C0:C3:7D:A2'
-
-# DNS LAN (temporary)
-set service dhcp-server shared-network-name DNS authoritative
-set service dhcp-server shared-network-name DNS ping-check
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 default-router '10.7.0.1'
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 domain-name 'ctec.run'
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 lease '86400'
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 name-server '10.5.0.4'
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 range 0 start '10.7.0.200'
-set service dhcp-server shared-network-name DNS subnet 10.7.0.0/24 range 0 stop '10.7.0.254'

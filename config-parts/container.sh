@@ -17,45 +17,6 @@ set container name cloudflare-ddns memory '0'
 set container name cloudflare-ddns restart 'on-failure'
 set container name cloudflare-ddns shared-memory '0'
 
-# bind
-set container name bind cap-add 'net-bind-service'
-set container name bind image 'docker.io/internetsystemsconsortium/bind9:9.19'
-set container name bind command '/usr/sbin/named -4 -f -c /etc/bind/named.conf -u bind'
-set container name bind memory '0'
-set container name bind network containers address '10.5.0.3'
-set container name bind restart 'on-failure'
-set container name bind shared-memory '0'
-set container name bind volume config destination '/etc/bind'
-set container name bind volume config source '/config/containers/bind/config'
-set container name bind volume config mode 'ro'
-set container name bind volume cache source '/tmp/bind/cache'
-set container name bind volume cache destination '/var/cache/bind'
-set container name bind volume cache mode 'rw'
-
-# blocky
-set container name blocky image 'ghcr.io/0xerr0r/blocky:v0.23'
-set container name blocky memory '0'
-set container name blocky network containers address '10.5.0.7'
-set container name blocky shared-memory '0'
-set container name blocky restart 'on-failure'
-set container name blocky environment TZ value ${TZ}
-set container name blocky volume config source '/config/containers/blocky/config/config.yml'
-set container name blocky volume config destination '/app/config.yml'
-set container name blocky volume config mode 'ro'
-
-# dnsdist
-set container name dnsdist cap-add 'net-bind-service'
-set container name dnsdist environment TZ value ${TZ}
-set container name dnsdist image 'docker.io/powerdns/dnsdist-18:1.8.3'
-set container name dnsdist arguments '--log-timestamps'
-set container name dnsdist memory '0'
-set container name dnsdist network containers address '10.5.0.4'
-set container name dnsdist restart 'on-failure'
-set container name dnsdist shared-memory '0'
-set container name dnsdist volume config destination '/etc/dnsdist/dnsdist.conf'
-set container name dnsdist volume config source '/config/containers/dnsdist/config/dnsdist.conf'
-set container name dnsdist volume config mode 'ro'
-
 # haproxy-k8s-api
 set container name haproxy-k8s-api image 'docker.io/library/haproxy:2.9.5'
 set container name haproxy-k8s-api memory '0'
@@ -114,23 +75,6 @@ set container name smtp-relay volume smtp-relay-config destination '/data/maddy.
 set container name smtp-relay volume smtp-relay-config mode 'ro'
 set container name smtp-relay volume smtp-relay-config source '/config/containers/smtp-relay/config/maddy.conf'
 
-# wildcard certificate
-set container name lego-auto image 'ghcr.io/bjw-s/lego-auto:v0.3.0'
-set container name lego-auto memory '0'
-set container name lego-auto allow-host-networks
-set container name lego-auto shared-memory '0'
-set container name lego-auto restart 'on-failure'
-set container name lego-auto environment TZ value ${TZ}
-set container name lego-auto environment LA_DATADIR value '/config'
-set container name lego-auto environment LA_CACHEDIR value '/config/.cache'
-set container name lego-auto environment LA_EMAIL value 'postmaster@kokoro.wtf'
-set container name lego-auto environment LA_PROVIDER value 'cloudflare'
-set container name lego-auto environment LA_DOMAINS value '*.kokoro.wtf'
-set container name lego-auto environment CF_DNS_API_TOKEN value "${SECRET_CLOUDFLARE_DYNDNS_TOKEN}"
-set container name lego-auto volume datadir source '/config/secrets/certs/_.kokoro.wtf'
-set container name lego-auto volume datadir destination '/config'
-set container name lego-auto volume datadir mode 'rw'
-
 # matchbox
 set container name matchbox arguments '-address=0.0.0.0:80 -log-level=debug'
 set container name matchbox cap-add 'net-bind-service'
@@ -142,3 +86,14 @@ set container name matchbox volume matchbox-data destination '/var/lib/matchbox'
 set container name matchbox volume matchbox-data mode 'rw'
 set container name matchbox volume matchbox-data propagation 'private'
 set container name matchbox volume matchbox-data source '/config/containers/matchbox/data'
+
+# vnstat
+set container name vnstat allow-host-networks
+set container name vnstat environment EXCLUDE_PATTERN value '^docker|^veth|^br-|^lxc'
+set container name vnstat environment TZ value 'America/New_York'
+set container name vnstat image 'ghcr.io/vergoh/vnstat:2.12'
+set container name vnstat memory '0'
+set container name vnstat shared-memory '0'
+set container name vnstat volume vnstat-data destination '/var/lib/vnstat'
+set container name vnstat volume vnstat-data mode 'rw'
+set container name vnstat volume vnstat-data source '/config/containers/vnstat/data'

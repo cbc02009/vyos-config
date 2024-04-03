@@ -19,7 +19,7 @@ set interface ethernet eth1 offload tso
 
 # ETH2 DNS
 set interfaces ethernet eth2 hw-id '1c:fd:08:74:1b:0a'
-set interfaces ethernet eth2 address '10.7.0.1/24'
+set interfaces ethernet eth2 address '10.0.5.1/24'
 set interface ethernet eth2 offload gro
 set interface ethernet eth2 offload gso
 set interface ethernet eth2 offload sg
