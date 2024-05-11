@@ -28,7 +28,7 @@ set container name haproxy-k8s-api volume config source '/config/containers/hapr
 set container name haproxy-k8s-api volume config mode 'ro'
 
 # Iperf3
-set container name iperf3 image 'docker.io/tangentsoft/iperf3:v3.16'
+set container name iperf3 image 'docker.io/tangentsoft/iperf3:v3.17'
 set container name iperf3 allow-host-networks
 set container name iperf3 memory '0'
 set container name iperf3 restart 'on-failure'
