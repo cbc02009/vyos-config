@@ -18,7 +18,7 @@ set container name cloudflare-ddns restart 'on-failure'
 set container name cloudflare-ddns shared-memory '0'
 
 # haproxy-k8s-api
-set container name haproxy-k8s-api image 'docker.io/library/haproxy:3.0.1'
+set container name haproxy-k8s-api image 'docker.io/library/haproxy:3.0.2'
 set container name haproxy-k8s-api memory '0'
 set container name haproxy-k8s-api network containers address '10.5.0.2'
 set container name haproxy-k8s-api restart 'on-failure'
